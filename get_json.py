@@ -24,7 +24,7 @@ for i in range(0,len(aas_opdata)) :
         evt_list.append(aas_opdata[i])
 
 
-
+print(json.dumps(evt_list,indent=2))
 #print(len(aas_opdata))
    
 f.close()
