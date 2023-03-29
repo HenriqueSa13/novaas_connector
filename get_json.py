@@ -1,5 +1,4 @@
 import json
-import pandas as pd
 
 
 f = open('http___smart_festo_com_id_instance_aas_5140_0142_3091_4340.aas.json')
