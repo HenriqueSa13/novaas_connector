@@ -1134,19 +1134,9 @@
                 "type": "str"
             },
             {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CurrentOperatingPressure"
-            },
-            {
                 "name": "HistoryLength",
                 "value": "14400",
                 "type": "num"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CurrentOperatingPressureEvt"
             }
         ],
         "x": 350,
@@ -1174,19 +1164,9 @@
                 "type": "str"
             },
             {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTime"
-            },
-            {
                 "name": "HistoryLength",
                 "value": "14400",
                 "type": "num"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeEvt"
             }
         ],
         "x": 1910,
@@ -1214,19 +1194,9 @@
                 "type": "str"
             },
             {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ValvePosition"
-            },
-            {
                 "name": "HistoryLength",
                 "value": "14400",
                 "type": "num"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ValvePositionEvt"
             }
         ],
         "x": 410,
@@ -1254,19 +1224,9 @@
                 "type": "str"
             },
             {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeMovingAvg"
-            },
-            {
                 "name": "HistoryLength",
                 "value": "14400",
                 "type": "num"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeMovingAvgEvt"
             }
         ],
         "x": 1910,
@@ -1294,19 +1254,9 @@
                 "type": "str"
             },
             {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CylinderStatus"
-            },
-            {
                 "name": "HistoryLength",
                 "value": "14400",
                 "type": "num"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CylinderStatusEvt"
             }
         ],
         "x": 430,
@@ -1454,19 +1404,9 @@
                 "type": "str"
             },
             {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/Cycle"
-            },
-            {
                 "name": "HistoryLength",
                 "value": "14400",
                 "type": "num"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CycleEvt"
             }
         ],
         "x": 1990,
@@ -1614,19 +1554,9 @@
                 "type": "str"
             },
             {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimePred"
-            },
-            {
                 "name": "HistoryLength",
                 "value": "14400",
                 "type": "num"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimePredictionEvt"
             }
         ],
         "x": 430,
