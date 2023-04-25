@@ -1,6 +1,14 @@
 import json
+import tkinter as tk
+import tkinter.filedialog
 
-f = open('http___smart_festo_com_id_instance_aas_5140_0142_3091_4340.aas.json')
+history_length = "14400"
+
+root = tk.Tk()
+root.withdraw()
+filepath_assetjson = tk.filedialog.askopenfilename(initialdir="./v1" ,title="Asset JSON file:")
+
+f = open(filepath_assetjson)
 #open aasx model file (json)
 data = json.load(f)
 
@@ -28,12 +36,15 @@ for i in range(0,len(aas_opdata)) :
    
 f.close()
 
-with open('flow_opdata_todo.json', 'r') as f_flow:
+
+root = tk.Tk()
+root.withdraw()
+filepath_flow = tk.filedialog.askopenfilename(title="Node-Red flow JSON file:")
+
+with open(filepath_flow, 'r') as f_flow:
 
     flow_data = json.load(f_flow)
 
-    
-    
     for i in range(0,len(flow_data)):   
         if "name" in flow_data[i].keys():
             if flow_data[i]["name"] == "Property handler":
@@ -48,20 +59,32 @@ with open('flow_opdata_todo.json', 'r') as f_flow:
             if flow_data[i]["type"] == ("subflow:" + propertyhandler_id) and ("Property " in flow_data[i]["name"]):
                 n_properties_in_flow += 1
                 
-                if len(flow_data[i]["env"]) > 2:
+                if len(flow_data[i]["env"]) > 0:
                     continue
+    
+                property_dict = {}
+                property_dict["name"] = "PropertyName"
+                property_dict["type"] = "str"
+                property_dict["value"] = evt_list[j]["observed"]["keys"][2]["value"]
                 
                 propertylink_dict = {}
                 propertylink_dict["name"] = "PropertyLink"
                 propertylink_dict["type"] = "str"
                 propertylink_dict["value"] = aas_id + "/OperationalData/" + evt_list[j]["observed"]["keys"][2]["value"]
                 
+                historylength_dict = {}
+                historylength_dict["name"] = "HistoryLength"
+                historylength_dict["type"] = "num"
+                historylength_dict["value"] = history_length
+
                 propertylinkevt_dict = {}
                 propertylinkevt_dict["name"] = "PropertyLinkEvt"
                 propertylinkevt_dict["type"] = "str"
                 propertylinkevt_dict["value"] = aas_id + "/OperationalData/" + evt_list[j]["idShort"]
                 
+                flow_data[i]["env"].insert(0,property_dict)
                 flow_data[i]["env"].insert(1,propertylink_dict)
+                flow_data[i]["env"].insert(2,historylength_dict)
                 flow_data[i]["env"].insert(3,propertylinkevt_dict)
                 
                 j += 1
@@ -77,7 +100,7 @@ with open('flow_opdata_todo.json', 'r') as f_flow:
         #exit() 
 
 
-with open('flow_opdata_todo.json', 'w') as f_flow:
+with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)
 
 
