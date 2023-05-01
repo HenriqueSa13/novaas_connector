@@ -12,7 +12,11 @@ f = open(filepath_assetjson)
 #open aasx model file (json)
 data = json.load(f)
 
+coll_list = list()
 evt_list = list()
+main_list = list()
+list_x = list()
+level = 0
 n_properties = 0
 n_properties_in_flow = 0
 
@@ -23,19 +27,46 @@ print(aas_id)
 for i in range(0,len(data["submodels"])) :
     if data["submodels"][i]["idShort"] == "OperationalData":
         aas_opdata = data["submodels"][i]["submodelElements"]
+        break
 
 for i in range(0,len(aas_opdata)) :
+    if aas_opdata[i]["modelType"]["name"] == "SubmodelElementCollection":
+        main_list.append(aas_opdata[i]["idShort"])
+        coll_list.append(aas_opdata[i]["value"])
+
     if aas_opdata[i]["modelType"]["name"] == "Property":
         n_properties += 1
 
     if aas_opdata[i]["modelType"]["name"] == "BasicEvent":
-        evt_list.append(aas_opdata[i])
+        evt_list.append(aas_opdata[i]["idShort"])
 
 #print(json.dumps(evt_list,indent=2))
 #print(len(aas_opdata))
+
+#print(len(coll_list[0][4]))
+
+main_list.append(coll_list[0]["idShort"])
    
+while len(coll_list) != 0:
+    initial_len = len(coll_list)
+    
+    for i in range(0,len(coll_list)):
+        for j in range(0,len(coll_list[i])):
+            if coll_list[i][j]["modelType"]["name"] == "SubmodelElementCollection":
+                coll_list.append(coll_list[i][j]["value"])
+
+            if aas_opdata[i][j]["modelType"]["name"] == "BasicEvent":
+                evt_list.append(aas_opdata[i][j]["idShort"])
+ 
+    del coll_list[:initial_len]
+          
+        
+
+
 f.close()
 
+
+#-------------------------------------------------------------------------
 
 root = tk.Tk()
 root.withdraw()
