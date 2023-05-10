@@ -44,6 +44,8 @@ for i in range(0,len(aas_opdata)) :
 #print(json.dumps(evt_list,indent=2))
 #print(len(aas_opdata))
 
+#databases
+
 print(len(coll_list[0]))
 print(main_list)
 
@@ -55,10 +57,6 @@ while len(coll_list) != 0:
         for j in range(0,len(coll_list[i])):
             if coll_list[i][j]["modelType"]["name"] == "SubmodelElementCollection":
                 coll_list.append(coll_list[i][j]["value"])
-                if len(main_list) < j + 1:
-                    main_list.insert(j,aux_list[i] + "." + coll_list[i][j]["idShort"])
-                else:
-                    main_list[j] = aux_list[i] + "." + coll_list[i][j]["idShort"]
 
             if coll_list[i][j]["modelType"]["name"] == "BasicEvent":
                 evt_list.append(coll_list[i][j]["idShort"])
