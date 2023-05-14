@@ -15,9 +15,8 @@ data = json.load(f)
 
 coll_list = list()
 evt_list = list()
-main_list = list()
-list_x = list()
-level = 0
+property_list = list()
+evt_name = ""
 n_properties = 0
 n_properties_in_flow = 0
 
@@ -32,26 +31,31 @@ for i in range(0,len(data["submodels"])) :
 
 for i in range(0,len(aas_opdata)) :
     if aas_opdata[i]["modelType"]["name"] == "SubmodelElementCollection":
-        main_list.append(aas_opdata[i]["idShort"])
         coll_list.append(aas_opdata[i]["value"])
 
     if aas_opdata[i]["modelType"]["name"] == "Property":
         n_properties += 1
 
     if aas_opdata[i]["modelType"]["name"] == "BasicEvent":
-        evt_list.append(aas_opdata[i]["idShort"])
+        for j in range(2,len(aas_opdata[i]["observed"]["keys"])):
+            if j == len(aas_opdata[i]["observed"]["keys"]) - 1:
+                evt_name += aas_opdata[i]["observed"]["keys"][j]["value"] + "Evt"
+            else:
+                evt_name += aas_opdata[i]["observed"]["keys"][j]["value"] + "."
+        
+        evt_list.append(evt_name) 
+        evt_name = ""
+        
 
 #print(json.dumps(evt_list,indent=2))
 #print(len(aas_opdata))
 
 #databases
 
-print(len(coll_list[0]))
-print(main_list)
+#print(len(coll_list[0]))
 
 while len(coll_list) != 0:
     initial_len = len(coll_list)
-    aux_list = copy.deepcopy(main_list)
 
     for i in range(0,len(coll_list)):
         for j in range(0,len(coll_list[i])):
@@ -59,11 +63,17 @@ while len(coll_list) != 0:
                 coll_list.append(coll_list[i][j]["value"])
 
             if coll_list[i][j]["modelType"]["name"] == "BasicEvent":
-                evt_list.append(coll_list[i][j]["idShort"])
+                for k in range(2,len(coll_list[i][j]["observed"]["keys"])):
+                    if k == len(coll_list[i][j]["observed"]["keys"])-1:
+                        evt_name += coll_list[i][j]["observed"]["keys"][k]["value"] + "Evt"
+                    else:
+                        evt_name += coll_list[i][j]["observed"]["keys"][k]["value"] + "."
+                    
+                evt_list.append(evt_name) 
+                evt_name = ""
  
     del coll_list[:initial_len]
           
-print(main_list)
 print(evt_list)      
 
 f.close()
