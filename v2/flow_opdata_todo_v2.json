@@ -472,91 +472,6 @@
         ]
     },
     {
-        "id": "917b5192627637eb",
-        "type": "debug",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "0c4feb0062353fc2",
-        "type": "debug",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2110,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "96ec7195857503e4",
-        "type": "debug",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 610,
-        "y": 760,
-        "wires": []
-    },
-    {
-        "id": "07fcc6b18ab42712",
-        "type": "debug",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2110,
-        "y": 740,
-        "wires": []
-    },
-    {
-        "id": "0ee0e2d67b0efe5f",
-        "type": "debug",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 630,
-        "y": 1080,
-        "wires": []
-    },
-    {
         "id": "4be0576d4487e1ca",
         "type": "inject",
         "z": "128ab3134a54f6b4",
@@ -1127,38 +1042,11 @@
         "type": "subflow:41b3a1439ccec2c1",
         "z": "128ab3134a54f6b4",
         "name": "Property 1",
-        "env": [
-            {
-                "name": "PropertyName",
-                "type": "str",
-                "value": "CurrentOperatingPressure"
-            },
-            {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CurrentOperatingPressure"
-            },
-            {
-                "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CurrentOperatingPressureEvt"
-            }
-        ],
         "x": 350,
         "y": 480,
         "wires": [
-            [
-                "c15f3336dbf94ae6"
-            ],
-            [
-                "eadbc9240e0cdc8c",
-                "917b5192627637eb"
-            ],
+            [],
+            [],
             []
         ]
     },
@@ -1167,38 +1055,11 @@
         "type": "subflow:41b3a1439ccec2c1",
         "z": "128ab3134a54f6b4",
         "name": "Property 2",
-        "env": [
-            {
-                "name": "PropertyName",
-                "type": "str",
-                "value": "ResponseTime"
-            },
-            {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTime"
-            },
-            {
-                "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeEvt"
-            }
-        ],
         "x": 1910,
         "y": 480,
         "wires": [
-            [
-                "0c4feb0062353fc2",
-                "fe88bf27f3c503ad"
-            ],
-            [
-                "8d76970b5a1222aa"
-            ],
+            [],
+            [],
             []
         ]
     },
@@ -1207,38 +1068,11 @@
         "type": "subflow:41b3a1439ccec2c1",
         "z": "128ab3134a54f6b4",
         "name": "Property 3",
-        "env": [
-            {
-                "name": "PropertyName",
-                "type": "str",
-                "value": "ValvePosition"
-            },
-            {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ValvePosition"
-            },
-            {
-                "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ValvePositionEvt"
-            }
-        ],
         "x": 410,
         "y": 800,
         "wires": [
-            [
-                "96ec7195857503e4",
-                "7306d65d1bc01b37"
-            ],
-            [
-                "e98655e2c9882820"
-            ],
+            [],
+            [],
             []
         ]
     },
@@ -1247,38 +1081,11 @@
         "type": "subflow:41b3a1439ccec2c1",
         "z": "128ab3134a54f6b4",
         "name": "Property 4",
-        "env": [
-            {
-                "name": "PropertyName",
-                "type": "str",
-                "value": "ResponseTimeMovingAvg"
-            },
-            {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeMovingAvg"
-            },
-            {
-                "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeMovingAvgEvt"
-            }
-        ],
         "x": 1910,
         "y": 780,
         "wires": [
-            [
-                "07fcc6b18ab42712",
-                "fa5cbe0db60ec832"
-            ],
-            [
-                "e2cb9dfbe9c7c212"
-            ],
+            [],
+            [],
             []
         ]
     },
@@ -1287,57 +1094,13 @@
         "type": "subflow:41b3a1439ccec2c1",
         "z": "128ab3134a54f6b4",
         "name": "Property 5",
-        "env": [
-            {
-                "name": "PropertyName",
-                "type": "str",
-                "value": "CylinderStatus"
-            },
-            {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CylinderStatus"
-            },
-            {
-                "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CylinderStatusEvt"
-            }
-        ],
         "x": 430,
         "y": 1140,
         "wires": [
-            [
-                "0ee0e2d67b0efe5f",
-                "59bdbd7a506d8fd5"
-            ],
-            [
-                "a54415cb96270ac0"
-            ],
+            [],
+            [],
             []
         ]
-    },
-    {
-        "id": "ed653a4c23fbbc0b",
-        "type": "debug",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 2190,
-        "y": 1100,
-        "wires": []
     },
     {
         "id": "eac1e7b53fa37af3",
@@ -1447,57 +1210,13 @@
         "type": "subflow:41b3a1439ccec2c1",
         "z": "128ab3134a54f6b4",
         "name": "Property 6",
-        "env": [
-            {
-                "name": "PropertyName",
-                "type": "str",
-                "value": "Cycle"
-            },
-            {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/Cycle"
-            },
-            {
-                "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CycleEvt"
-            }
-        ],
         "x": 1990,
         "y": 1140,
         "wires": [
-            [
-                "ed653a4c23fbbc0b",
-                "769bc30f1e2ca841"
-            ],
-            [
-                "a19b541913d06013"
-            ],
+            [],
+            [],
             []
         ]
-    },
-    {
-        "id": "734fd038b56535df",
-        "type": "debug",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 610,
-        "y": 1460,
-        "wires": []
     },
     {
         "id": "528e58833a988422",
@@ -1607,38 +1326,11 @@
         "type": "subflow:41b3a1439ccec2c1",
         "z": "128ab3134a54f6b4",
         "name": "Property 7",
-        "env": [
-            {
-                "name": "PropertyName",
-                "type": "str",
-                "value": "ResponseTimePred"
-            },
-            {
-                "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimePred"
-            },
-            {
-                "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
-            },
-            {
-                "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimePredictionEvt"
-            }
-        ],
         "x": 430,
         "y": 1520,
         "wires": [
-            [
-                "734fd038b56535df",
-                "bac985087fd6f894"
-            ],
-            [
-                "c46fa08910fa0901"
-            ],
+            [],
+            [],
             []
         ]
     },
@@ -2273,104 +1965,6 @@
         "wires": []
     },
     {
-        "id": "5a83b4fb4e0ba10c",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 1140,
-        "y": 440,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "048ba3a0625e4510",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 1140,
-        "y": 780,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "cdb7ca556bf07837",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 1140,
-        "y": 1120,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "0d356070fd1e440b",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 1160,
-        "y": 1500,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e0228169e632fce2",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 2740,
-        "y": 460,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "3de1f30f5c365959",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 2740,
-        "y": 760,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "626df66b2f8fedd5",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 2740,
-        "y": 1120,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "d57f305ac53e4d3f",
         "type": "link call",
         "z": "128ab3134a54f6b4",
@@ -2411,13 +2005,13 @@
         "z": "128ab3134a54f6b4",
         "name": "metrics",
         "links": [
-            "f3137293845d295d",
-            "38b37541ec9d7086",
-            "cd39ec5da0b7b743",
             "2779d6b6a0f7b1cc",
+            "38b37541ec9d7086",
+            "5df3fe8b89186d53",
             "77b206c3d0825bf2",
+            "cd39ec5da0b7b743",
             "ebeaa83d4abb8b92",
-            "5df3fe8b89186d53"
+            "f3137293845d295d"
         ],
         "x": 730,
         "y": 2080,
@@ -2427,482 +2021,6 @@
             ]
         ],
         "l": true
-    },
-    {
-        "id": "eadbc9240e0cdc8c",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.routed",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 480,
-        "wires": [
-            [
-                "1aa7d12a78802563"
-            ]
-        ]
-    },
-    {
-        "id": "c15f3336dbf94ae6",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.updateSubscriptions",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 440,
-        "wires": [
-            [
-                "5a83b4fb4e0ba10c"
-            ]
-        ]
-    },
-    {
-        "id": "7306d65d1bc01b37",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.updateSubscriptions",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 780,
-        "wires": [
-            [
-                "048ba3a0625e4510"
-            ]
-        ]
-    },
-    {
-        "id": "59bdbd7a506d8fd5",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.updateSubscriptions",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 1120,
-        "wires": [
-            [
-                "cdb7ca556bf07837"
-            ]
-        ]
-    },
-    {
-        "id": "bac985087fd6f894",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.updateSubscriptions",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 1500,
-        "wires": [
-            [
-                "0d356070fd1e440b"
-            ]
-        ]
-    },
-    {
-        "id": "fe88bf27f3c503ad",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.updateSubscriptions",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2360,
-        "y": 460,
-        "wires": [
-            [
-                "e0228169e632fce2"
-            ]
-        ]
-    },
-    {
-        "id": "fa5cbe0db60ec832",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.updateSubscriptions",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2360,
-        "y": 760,
-        "wires": [
-            [
-                "3de1f30f5c365959"
-            ]
-        ]
-    },
-    {
-        "id": "769bc30f1e2ca841",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.updateSubscriptions",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2360,
-        "y": 1120,
-        "wires": [
-            [
-                "626df66b2f8fedd5"
-            ]
-        ]
-    },
-    {
-        "id": "1aa7d12a78802563",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 1140,
-        "y": 480,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e98655e2c9882820",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.routed",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 820,
-        "wires": [
-            [
-                "bb967e7e4e1268c3"
-            ]
-        ]
-    },
-    {
-        "id": "bb967e7e4e1268c3",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 1140,
-        "y": 820,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a54415cb96270ac0",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.routed",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 1160,
-        "wires": [
-            [
-                "d3a21737e8f473b4"
-            ]
-        ]
-    },
-    {
-        "id": "d3a21737e8f473b4",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 1140,
-        "y": 1160,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "c46fa08910fa0901",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.routed",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 1540,
-        "wires": [
-            [
-                "81565ab51080788a"
-            ]
-        ]
-    },
-    {
-        "id": "81565ab51080788a",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 1160,
-        "y": 1540,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8d76970b5a1222aa",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.routed",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2360,
-        "y": 500,
-        "wires": [
-            [
-                "481398519a9d5237"
-            ]
-        ]
-    },
-    {
-        "id": "481398519a9d5237",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 2740,
-        "y": 500,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "e2cb9dfbe9c7c212",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.routed",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2360,
-        "y": 800,
-        "wires": [
-            [
-                "59420534ad5d78a1"
-            ]
-        ]
-    },
-    {
-        "id": "59420534ad5d78a1",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 2740,
-        "y": 800,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "a19b541913d06013",
-        "type": "change",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "target",
-                "pt": "msg",
-                "to": "southbound.routed",
-                "tot": "str"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 2360,
-        "y": 1160,
-        "wires": [
-            [
-                "1cbf9c0a31818457"
-            ]
-        ]
-    },
-    {
-        "id": "1cbf9c0a31818457",
-        "type": "link call",
-        "z": "128ab3134a54f6b4",
-        "name": "",
-        "links": [],
-        "linkType": "dynamic",
-        "timeout": "30",
-        "x": 2740,
-        "y": 1160,
-        "wires": [
-            []
-        ]
     },
     {
         "id": "50f874d57977fcf9",

@@ -472,21 +472,43 @@
         ]
     },
     {
-        "id": "917b5192627637eb",
-        "type": "debug",
+        "id": "a22a33eaebf6529f",
+        "type": "msg-router",
         "z": "128ab3134a54f6b4",
+        "routerType": "broadcast",
+        "topicDependent": false,
+        "counterReset": false,
+        "msgKeyField": "payload",
+        "undefinedHash": false,
+        "outputsInfo": [
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            },
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            }
+        ],
         "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 570,
-        "y": 500,
-        "wires": []
+        "delaying": "unrelated",
+        "msgControl": false,
+        "outputs": 2,
+        "x": 590,
+        "y": 600,
+        "wires": [
+            [
+                "2779d6b6a0f7b1cc"
+            ],
+            [
+                "18ad83ddc14a8fff",
+                "91eeebe1d5234d19"
+            ]
+        ]
     },
     {
         "id": "0c4feb0062353fc2",
@@ -506,6 +528,45 @@
         "wires": []
     },
     {
+        "id": "d2afefd3bc7955f0",
+        "type": "msg-router",
+        "z": "128ab3134a54f6b4",
+        "routerType": "broadcast",
+        "topicDependent": false,
+        "counterReset": false,
+        "msgKeyField": "payload",
+        "undefinedHash": false,
+        "outputsInfo": [
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            },
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            }
+        ],
+        "name": "",
+        "delaying": "unrelated",
+        "msgControl": false,
+        "outputs": 2,
+        "x": 2150,
+        "y": 600,
+        "wires": [
+            [
+                "5df3fe8b89186d53"
+            ],
+            [
+                "0acf0c089bdaea6a",
+                "937bb5c1c0d8a0a3"
+            ]
+        ]
+    },
+    {
         "id": "96ec7195857503e4",
         "type": "debug",
         "z": "128ab3134a54f6b4",
@@ -521,6 +582,45 @@
         "x": 610,
         "y": 760,
         "wires": []
+    },
+    {
+        "id": "78057a0f7b42669f",
+        "type": "msg-router",
+        "z": "128ab3134a54f6b4",
+        "routerType": "broadcast",
+        "topicDependent": false,
+        "counterReset": false,
+        "msgKeyField": "payload",
+        "undefinedHash": false,
+        "outputsInfo": [
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            },
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            }
+        ],
+        "name": "",
+        "delaying": "unrelated",
+        "msgControl": false,
+        "outputs": 2,
+        "x": 650,
+        "y": 920,
+        "wires": [
+            [
+                "cd39ec5da0b7b743"
+            ],
+            [
+                "b074660cba99adcf",
+                "2421d36893b38338"
+            ]
+        ]
     },
     {
         "id": "07fcc6b18ab42712",
@@ -540,6 +640,62 @@
         "wires": []
     },
     {
+        "id": "c9ae4fcfe0c6c389",
+        "type": "msg-router",
+        "z": "128ab3134a54f6b4",
+        "routerType": "broadcast",
+        "topicDependent": false,
+        "counterReset": false,
+        "msgKeyField": "payload",
+        "undefinedHash": false,
+        "outputsInfo": [
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            },
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            }
+        ],
+        "name": "",
+        "delaying": "unrelated",
+        "msgControl": false,
+        "outputs": 2,
+        "x": 2150,
+        "y": 920,
+        "wires": [
+            [
+                "ebeaa83d4abb8b92"
+            ],
+            [
+                "963a48fed27b7275",
+                "4496aaad104ba6e4"
+            ]
+        ]
+    },
+    {
+        "id": "963a48fed27b7275",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2690,
+        "y": 840,
+        "wires": []
+    },
+    {
         "id": "0ee0e2d67b0efe5f",
         "type": "debug",
         "z": "128ab3134a54f6b4",
@@ -554,6 +710,177 @@
         "statusType": "auto",
         "x": 630,
         "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "6bf45f0ccc31aa24",
+        "type": "msg-router",
+        "z": "128ab3134a54f6b4",
+        "routerType": "broadcast",
+        "topicDependent": false,
+        "counterReset": false,
+        "msgKeyField": "payload",
+        "undefinedHash": false,
+        "outputsInfo": [
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            },
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            }
+        ],
+        "name": "",
+        "delaying": "unrelated",
+        "msgControl": false,
+        "outputs": 2,
+        "x": 670,
+        "y": 1240,
+        "wires": [
+            [
+                "38b37541ec9d7086"
+            ],
+            [
+                "4fc60620cd61db57",
+                "98d898ce9e662492"
+            ]
+        ]
+    },
+    {
+        "id": "4fc60620cd61db57",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "18ad83ddc14a8fff",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "91eeebe1d5234d19",
+        "type": "json",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "property": "payload.data",
+        "action": "",
+        "pretty": false,
+        "x": 890,
+        "y": 580,
+        "wires": [
+            [
+                "9972d2363fc6854d",
+                "54ecd0622d36e32d"
+            ]
+        ]
+    },
+    {
+        "id": "0acf0c089bdaea6a",
+        "type": "json",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "property": "payload.data",
+        "action": "",
+        "pretty": false,
+        "x": 2450,
+        "y": 580,
+        "wires": [
+            [
+                "631352fe068f3d43"
+            ]
+        ]
+    },
+    {
+        "id": "b074660cba99adcf",
+        "type": "json",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "property": "payload.data",
+        "action": "",
+        "pretty": false,
+        "x": 890,
+        "y": 900,
+        "wires": [
+            [
+                "12ce6e0bc92395a9"
+            ]
+        ]
+    },
+    {
+        "id": "4496aaad104ba6e4",
+        "type": "json",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "property": "payload.data",
+        "action": "",
+        "pretty": false,
+        "x": 2450,
+        "y": 900,
+        "wires": [
+            [
+                "e0eb5904abedc0c5"
+            ]
+        ]
+    },
+    {
+        "id": "98d898ce9e662492",
+        "type": "json",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "property": "payload.data",
+        "action": "",
+        "pretty": false,
+        "x": 890,
+        "y": 1240,
+        "wires": [
+            [
+                "3bd02b39c1e9e9ec"
+            ]
+        ]
+    },
+    {
+        "id": "9972d2363fc6854d",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 540,
         "wires": []
     },
     {
@@ -1130,36 +1457,38 @@
         "env": [
             {
                 "name": "PropertyName",
-                "type": "str",
-                "value": "CurrentOperatingPressure"
+                "value": "CurrentOperatingPressure",
+                "type": "str"
             },
             {
                 "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CurrentOperatingPressure"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CurrentOperatingPressure",
+                "type": "str"
             },
             {
                 "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
+                "value": "14400",
+                "type": "num"
             },
             {
                 "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CurrentOperatingPressureEvt"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CurrentOperatingPressureEvt",
+                "type": "str"
             }
         ],
         "x": 350,
         "y": 480,
         "wires": [
             [
-                "c15f3336dbf94ae6"
-            ],
-            [
-                "eadbc9240e0cdc8c",
+                "c15f3336dbf94ae6",
                 "917b5192627637eb"
             ],
-            []
+            [
+                "eadbc9240e0cdc8c"
+            ],
+            [
+                "a22a33eaebf6529f"
+            ]
         ]
     },
     {
@@ -1170,23 +1499,23 @@
         "env": [
             {
                 "name": "PropertyName",
-                "type": "str",
-                "value": "ResponseTime"
+                "value": "ResponseTime",
+                "type": "str"
             },
             {
                 "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTime"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTime",
+                "type": "str"
             },
             {
                 "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
+                "value": "14400",
+                "type": "num"
             },
             {
                 "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeEvt"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeEvt",
+                "type": "str"
             }
         ],
         "x": 1910,
@@ -1199,7 +1528,9 @@
             [
                 "8d76970b5a1222aa"
             ],
-            []
+            [
+                "d2afefd3bc7955f0"
+            ]
         ]
     },
     {
@@ -1210,23 +1541,23 @@
         "env": [
             {
                 "name": "PropertyName",
-                "type": "str",
-                "value": "ValvePosition"
+                "value": "ValvePosition",
+                "type": "str"
             },
             {
                 "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ValvePosition"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ValvePosition",
+                "type": "str"
             },
             {
                 "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
+                "value": "14400",
+                "type": "num"
             },
             {
                 "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ValvePositionEvt"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ValvePositionEvt",
+                "type": "str"
             }
         ],
         "x": 410,
@@ -1239,7 +1570,9 @@
             [
                 "e98655e2c9882820"
             ],
-            []
+            [
+                "78057a0f7b42669f"
+            ]
         ]
     },
     {
@@ -1250,23 +1583,23 @@
         "env": [
             {
                 "name": "PropertyName",
-                "type": "str",
-                "value": "ResponseTimeMovingAvg"
+                "value": "ResponseTimeMovingAvg",
+                "type": "str"
             },
             {
                 "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeMovingAvg"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeMovingAvg",
+                "type": "str"
             },
             {
                 "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
+                "value": "14400",
+                "type": "num"
             },
             {
                 "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeMovingAvgEvt"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimeMovingAvgEvt",
+                "type": "str"
             }
         ],
         "x": 1910,
@@ -1279,7 +1612,9 @@
             [
                 "e2cb9dfbe9c7c212"
             ],
-            []
+            [
+                "c9ae4fcfe0c6c389"
+            ]
         ]
     },
     {
@@ -1290,23 +1625,23 @@
         "env": [
             {
                 "name": "PropertyName",
-                "type": "str",
-                "value": "CylinderStatus"
+                "value": "CylinderStatus",
+                "type": "str"
             },
             {
                 "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CylinderStatus"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CylinderStatus",
+                "type": "str"
             },
             {
                 "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
+                "value": "14400",
+                "type": "num"
             },
             {
                 "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CylinderStatusEvt"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CylinderStatusEvt",
+                "type": "str"
             }
         ],
         "x": 430,
@@ -1319,7 +1654,9 @@
             [
                 "a54415cb96270ac0"
             ],
-            []
+            [
+                "6bf45f0ccc31aa24"
+            ]
         ]
     },
     {
@@ -1338,6 +1675,78 @@
         "x": 2190,
         "y": 1100,
         "wires": []
+    },
+    {
+        "id": "20dbb9b7c78ffb49",
+        "type": "msg-router",
+        "z": "128ab3134a54f6b4",
+        "routerType": "broadcast",
+        "topicDependent": false,
+        "counterReset": false,
+        "msgKeyField": "payload",
+        "undefinedHash": false,
+        "outputsInfo": [
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            },
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            }
+        ],
+        "name": "",
+        "delaying": "unrelated",
+        "msgControl": false,
+        "outputs": 2,
+        "x": 2230,
+        "y": 1240,
+        "wires": [
+            [
+                "77b206c3d0825bf2"
+            ],
+            [
+                "6309522e4b653590",
+                "47e50ac87f960055"
+            ]
+        ]
+    },
+    {
+        "id": "6309522e4b653590",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2730,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "47e50ac87f960055",
+        "type": "json",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "property": "payload.data",
+        "action": "",
+        "pretty": false,
+        "x": 2530,
+        "y": 1240,
+        "wires": [
+            [
+                "a3d5d731cd8b6d42"
+            ]
+        ]
     },
     {
         "id": "eac1e7b53fa37af3",
@@ -1450,23 +1859,23 @@
         "env": [
             {
                 "name": "PropertyName",
-                "type": "str",
-                "value": "Cycle"
+                "value": "Cycle",
+                "type": "str"
             },
             {
                 "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/Cycle"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/Cycle",
+                "type": "str"
             },
             {
                 "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
+                "value": "14400",
+                "type": "num"
             },
             {
                 "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CycleEvt"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/CycleEvt",
+                "type": "str"
             }
         ],
         "x": 1990,
@@ -1479,7 +1888,9 @@
             [
                 "a19b541913d06013"
             ],
-            []
+            [
+                "20dbb9b7c78ffb49"
+            ]
         ]
     },
     {
@@ -1498,6 +1909,78 @@
         "x": 610,
         "y": 1460,
         "wires": []
+    },
+    {
+        "id": "636051731b8e795e",
+        "type": "msg-router",
+        "z": "128ab3134a54f6b4",
+        "routerType": "broadcast",
+        "topicDependent": false,
+        "counterReset": false,
+        "msgKeyField": "payload",
+        "undefinedHash": false,
+        "outputsInfo": [
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            },
+            {
+                "active": true,
+                "clone": false,
+                "delay": "0",
+                "weight": "0"
+            }
+        ],
+        "name": "",
+        "delaying": "unrelated",
+        "msgControl": false,
+        "outputs": 2,
+        "x": 670,
+        "y": 1620,
+        "wires": [
+            [
+                "f3137293845d295d"
+            ],
+            [
+                "2d551cdc88e42ae8",
+                "90d5ba1a50c32e8f"
+            ]
+        ]
+    },
+    {
+        "id": "2d551cdc88e42ae8",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 1580,
+        "wires": []
+    },
+    {
+        "id": "90d5ba1a50c32e8f",
+        "type": "json",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "property": "payload.data",
+        "action": "",
+        "pretty": false,
+        "x": 910,
+        "y": 1620,
+        "wires": [
+            [
+                "5452497d5ac0f4cd"
+            ]
+        ]
     },
     {
         "id": "528e58833a988422",
@@ -1610,23 +2093,23 @@
         "env": [
             {
                 "name": "PropertyName",
-                "type": "str",
-                "value": "ResponseTimePred"
+                "value": "ResponseTimePred",
+                "type": "str"
             },
             {
                 "name": "PropertyLink",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimePred"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimePred",
+                "type": "str"
             },
             {
                 "name": "HistoryLength",
-                "type": "num",
-                "value": "14400"
+                "value": "14400",
+                "type": "num"
             },
             {
                 "name": "PropertyLinkEvt",
-                "type": "str",
-                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimePredictionEvt"
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340/OperationalData/ResponseTimePredEvt",
+                "type": "str"
             }
         ],
         "x": 430,
@@ -1639,7 +2122,9 @@
             [
                 "c46fa08910fa0901"
             ],
-            []
+            [
+                "636051731b8e795e"
+            ]
         ]
     },
     {
@@ -2406,18 +2891,32 @@
         ]
     },
     {
+        "id": "2779d6b6a0f7b1cc",
+        "type": "link out",
+        "z": "128ab3134a54f6b4",
+        "name": "metrics",
+        "mode": "link",
+        "links": [
+            "233985a03f7af2aa"
+        ],
+        "x": 900,
+        "y": 540,
+        "wires": [],
+        "l": true
+    },
+    {
         "id": "233985a03f7af2aa",
         "type": "link in",
         "z": "128ab3134a54f6b4",
         "name": "metrics",
         "links": [
-            "f3137293845d295d",
-            "38b37541ec9d7086",
-            "cd39ec5da0b7b743",
             "2779d6b6a0f7b1cc",
+            "38b37541ec9d7086",
+            "5df3fe8b89186d53",
             "77b206c3d0825bf2",
+            "cd39ec5da0b7b743",
             "ebeaa83d4abb8b92",
-            "5df3fe8b89186d53"
+            "f3137293845d295d"
         ],
         "x": 730,
         "y": 2080,
@@ -2426,6 +2925,90 @@
                 "568d6b198e562bcd"
             ]
         ],
+        "l": true
+    },
+    {
+        "id": "cd39ec5da0b7b743",
+        "type": "link out",
+        "z": "128ab3134a54f6b4",
+        "name": "metrics",
+        "mode": "link",
+        "links": [
+            "233985a03f7af2aa"
+        ],
+        "x": 900,
+        "y": 860,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "38b37541ec9d7086",
+        "type": "link out",
+        "z": "128ab3134a54f6b4",
+        "name": "metrics",
+        "mode": "link",
+        "links": [
+            "233985a03f7af2aa"
+        ],
+        "x": 900,
+        "y": 1200,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "f3137293845d295d",
+        "type": "link out",
+        "z": "128ab3134a54f6b4",
+        "name": "metrics",
+        "mode": "link",
+        "links": [
+            "233985a03f7af2aa"
+        ],
+        "x": 900,
+        "y": 1580,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "5df3fe8b89186d53",
+        "type": "link out",
+        "z": "128ab3134a54f6b4",
+        "name": "metrics",
+        "mode": "link",
+        "links": [
+            "233985a03f7af2aa"
+        ],
+        "x": 2460,
+        "y": 540,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "ebeaa83d4abb8b92",
+        "type": "link out",
+        "z": "128ab3134a54f6b4",
+        "name": "metrics",
+        "mode": "link",
+        "links": [
+            "233985a03f7af2aa"
+        ],
+        "x": 2460,
+        "y": 840,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "77b206c3d0825bf2",
+        "type": "link out",
+        "z": "128ab3134a54f6b4",
+        "name": "metrics",
+        "mode": "link",
+        "links": [
+            "233985a03f7af2aa"
+        ],
+        "x": 2460,
+        "y": 1200,
+        "wires": [],
         "l": true
     },
     {
@@ -2944,5 +3527,343 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "dc55258e946a2e61",
+        "type": "link call",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "links": [],
+        "linkType": "dynamic",
+        "timeout": "30",
+        "x": 1240,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "54ecd0622d36e32d",
+        "type": "change",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "target",
+                "pt": "msg",
+                "to": "southbound.updateValue",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1080,
+        "y": 580,
+        "wires": [
+            [
+                "dc55258e946a2e61"
+            ]
+        ]
+    },
+    {
+        "id": "12ce6e0bc92395a9",
+        "type": "change",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "target",
+                "pt": "msg",
+                "to": "southbound.updateValue",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1080,
+        "y": 900,
+        "wires": [
+            [
+                "1a86422394914d7e"
+            ]
+        ]
+    },
+    {
+        "id": "1a86422394914d7e",
+        "type": "link call",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "links": [],
+        "linkType": "dynamic",
+        "timeout": "30",
+        "x": 1240,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "358bcce8ae429bd9",
+        "type": "link call",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "links": [],
+        "linkType": "dynamic",
+        "timeout": "30",
+        "x": 1240,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3bd02b39c1e9e9ec",
+        "type": "change",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "target",
+                "pt": "msg",
+                "to": "southbound.updateValue",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1080,
+        "y": 1240,
+        "wires": [
+            [
+                "358bcce8ae429bd9"
+            ]
+        ]
+    },
+    {
+        "id": "f0552cbe3ca19565",
+        "type": "link call",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "links": [],
+        "linkType": "dynamic",
+        "timeout": "30",
+        "x": 1240,
+        "y": 1620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5452497d5ac0f4cd",
+        "type": "change",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "target",
+                "pt": "msg",
+                "to": "southbound.updateValue",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1080,
+        "y": 1620,
+        "wires": [
+            [
+                "f0552cbe3ca19565"
+            ]
+        ]
+    },
+    {
+        "id": "19e11092ef115cb6",
+        "type": "link call",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "links": [],
+        "linkType": "dynamic",
+        "timeout": "30",
+        "x": 2860,
+        "y": 1240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3d5d731cd8b6d42",
+        "type": "change",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "target",
+                "pt": "msg",
+                "to": "southbound.updateValue",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2700,
+        "y": 1240,
+        "wires": [
+            [
+                "19e11092ef115cb6"
+            ]
+        ]
+    },
+    {
+        "id": "7612f18343452a99",
+        "type": "link call",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "links": [],
+        "linkType": "dynamic",
+        "timeout": "30",
+        "x": 2780,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e0eb5904abedc0c5",
+        "type": "change",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "target",
+                "pt": "msg",
+                "to": "southbound.updateValue",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2620,
+        "y": 900,
+        "wires": [
+            [
+                "7612f18343452a99"
+            ]
+        ]
+    },
+    {
+        "id": "3cebbd208bc6d469",
+        "type": "link call",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "links": [],
+        "linkType": "dynamic",
+        "timeout": "30",
+        "x": 2800,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "631352fe068f3d43",
+        "type": "change",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "target",
+                "pt": "msg",
+                "to": "southbound.updateValue",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 2640,
+        "y": 580,
+        "wires": [
+            [
+                "3cebbd208bc6d469"
+            ]
+        ]
+    },
+    {
+        "id": "2421d36893b38338",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "937bb5c1c0d8a0a3",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2630,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "917b5192627637eb",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 400,
+        "wires": []
     }
 ]
