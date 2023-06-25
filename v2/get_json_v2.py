@@ -2,6 +2,7 @@ import json
 import tkinter as tk
 import tkinter.filedialog
 import copy
+import secrets
 
 history_length = "14400"
 
@@ -89,12 +90,15 @@ with open(filepath_flow, 'r') as f_flow:
         
         if "type" in flow_data[i].keys():
 
-            if flow_data[i]["type"] == ("subflow:" + propertyhandler_id) and ("Property " in flow_data[i]["name"]):
+            if flow_data[i]["type"] == ("subflow:" + propertyhandler_id) and ("Property " in flow_data[i]["name"]): #search for all the properties
                 n_properties_in_flow += 1
                 
-                if len(flow_data[i]["env"]) > 0:
+                #dont overwrite if not first time - just for testing
+                if ("env" in flow_data[i].keys()) and (len(flow_data[i]["env"]) > 0) :
                     continue
-    
+
+                #generate name, link, historylength and linkevt for env of property
+
                 property_dict = {}
                 property_dict["name"] = "PropertyName"
                 property_dict["type"] = "str"
@@ -115,11 +119,19 @@ with open(filepath_flow, 'r') as f_flow:
                 propertylinkevt_dict["type"] = "str"
                 propertylinkevt_dict["value"] = aas_id + "/OperationalData/" + evt_list[j]
                 
+                flow_data[i].update({"env":[]})
+
                 flow_data[i]["env"].insert(0,property_dict)
                 flow_data[i]["env"].insert(1,propertylink_dict)
                 flow_data[i]["env"].insert(2,historylength_dict)
                 flow_data[i]["env"].insert(3,propertylinkevt_dict)
-                
+
+                #generate wires: 2, 1, 1
+                flow_data[i]["wires"][0].append(secrets.token_hex(8))
+                flow_data[i]["wires"][0].append(secrets.token_hex(8))
+                flow_data[i]["wires"][1].append(secrets.token_hex(8))
+                flow_data[i]["wires"][2].append(secrets.token_hex(8))
+   
                 j += 1
                 
     """
@@ -136,4 +148,128 @@ with open(filepath_flow, 'r') as f_flow:
 with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)
 
+with open(filepath_flow, 'r') as f_flow:
 
+    flow_data = json.load(f_flow)
+
+    for i in range(0,len(flow_data)):   
+        if "type" in flow_data[i].keys():
+            if flow_data[i]["type"] == "tab":
+                flow_id = flow_data[i]["id"]
+                print(flow_data[i]["id"])
+                break
+    
+
+    #create change node 1st property
+    for i in range(0,len(flow_data)):
+
+        if "name" in flow_data[i].keys() and flow_data[i]["name"] == "Property 1":
+
+            change_node = {
+                "id": flow_data[i]["wires"][0][0],
+                "type": "change",
+                "z": flow_id,
+                "name": "",
+                "rules": [
+                    {
+                        "t": "set",
+                        "p": "target",
+                        "pt": "msg",
+                        "to": "southbound.updateSubscriptions",
+                        "tot": "str"
+                    }
+                ],
+                "action": "",
+                "property": "",
+                "from": "",
+                "to": "",
+                "reg": False,
+                "x": flow_data[i]["x"] + 400,
+                "y": flow_data[i]["y"] - 40,
+                "wires": [
+                    [
+                        secrets.token_hex(8)
+                    ]
+                ]
+            }
+
+            flow_data.append(change_node)
+
+            link_node ={
+                "id": change_node["wires"][0][0],
+                "type": "link call",
+                "z": flow_id,
+                "name": "",
+                "links": [],
+                "linkType": "dynamic",
+                "timeout": "30",
+                "x": change_node["x"] + 400,
+                "y": change_node["y"],
+                "wires": [
+                    []
+                ]
+            }
+
+            flow_data.append(link_node)
+
+            debug_node = {
+                "id": flow_data[i]["wires"][0][1],
+                "type": "debug",
+                "z": flow_id,
+                "name": "",
+                "active": False,
+                "tosidebar": True,
+                "console": False,
+                "tostatus": False,
+                "complete": "true",
+                "targetType": "full",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": flow_data[i]["x"] + 260,
+                "y": flow_data[i]["y"] - 80,
+                "wires": []
+            }
+
+            flow_data.append(debug_node)
+
+            change_node2 = {
+                "id": flow_data[i]["wires"][1],
+                "type": "change",
+                "z": flow_id,
+                "name": "",
+                "rules": [
+                    {
+                        "t": "set",
+                        "p": "target",
+                        "pt": "msg",
+                        "to": "southbound.routed",
+                        "tot": "str"
+                    }
+                ],
+                "action": "",
+                "property": "",
+                "from": "",
+                "to": "",
+                "reg": False,
+                "x": flow_data[i]["x"] + 400,
+                "y": flow_data[i]["y"],
+                "wires": [
+                    [
+                        secrets.token_hex(8)
+                    ]
+                ]
+            }
+
+            flow_data.append(change_node2)
+
+
+
+
+
+
+
+with open(filepath_flow, 'w') as f_flow:
+    json.dump(flow_data, f_flow)  
+
+
+    
