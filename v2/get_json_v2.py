@@ -83,7 +83,6 @@ with open(filepath_flow, 'r') as f_flow:
         if "name" in flow_data[i].keys():
             if flow_data[i]["name"] == "Property handler":
                 propertyhandler_id = flow_data[i]["id"]
-                print(flow_data[i]["id"])
                 break
     j=0
     for i in range(0,len(flow_data)):
@@ -156,11 +155,12 @@ with open(filepath_flow, 'r') as f_flow:
         if "type" in flow_data[i].keys():
             if flow_data[i]["type"] == "tab":
                 flow_id = flow_data[i]["id"]
-                print(flow_data[i]["id"])
-                break
-    
+            if flow_data[i]["type"] == "link in" and flow_data[i]["name"] == "metrics" :
+                metrics_links_list = flow_data[i]["links"]
+                metrics_id = flow_data[i]["id"]
 
-    #create change node 1st property
+    k=0 # aux int to iterate through metrics list
+    #create all the nodes in each property cluster
     for i in range(0,len(flow_data)):
 
         if "name" in flow_data[i].keys() and flow_data[i]["name"] == "Property 1":
@@ -233,7 +233,7 @@ with open(filepath_flow, 'r') as f_flow:
             flow_data.append(debug_node)
 
             change_node2 = {
-                "id": flow_data[i]["wires"][1],
+                "id": flow_data[i]["wires"][1][0],
                 "type": "change",
                 "z": flow_id,
                 "name": "",
@@ -261,6 +261,113 @@ with open(filepath_flow, 'r') as f_flow:
             }
 
             flow_data.append(change_node2)
+
+            link_node2 = {
+                "id": change_node2["wires"][0][0],
+                "type": "link call",
+                "z": flow_id,
+                "name": "",
+                "links": [],
+                "linkType": "dynamic",
+                "timeout": "30",
+                "x": change_node2["x"] + 400,
+                "y": change_node2["y"],
+                "wires": [
+                    []
+                ]
+            }
+
+            flow_data.append(link_node2)
+
+            broadcast_node = {
+                "id": flow_data[i]["wires"][2][0],
+                "type": "msg-router",
+                "z": flow_id,
+                "routerType": "broadcast",
+                "topicDependent": False,
+                "counterReset": False,
+                "msgKeyField": "payload",
+                "undefinedHash": False,
+                "outputsInfo": [
+                    {
+                        "active": True,
+                        "clone": False,
+                        "delay": "0",
+                        "weight": "0"
+                    },
+                    {
+                        "active": True,
+                        "clone": False,
+                        "delay": "0",
+                        "weight": "0"
+                    }
+                ],
+                "name": "",
+                "delaying": "unrelated",
+                "msgControl": False,
+                "outputs": 2,
+                "x": flow_data[i]["x"] + 240,
+                "y": flow_data[i]["y"] + 120,
+                "wires": [
+                    [
+                        metrics_links_list[k]
+                    ],
+                    [
+                        secrets.token_hex(8),
+                        secrets.token_hex(8)
+                    ]
+                ]
+
+            }
+
+            flow_data.append(broadcast_node)
+
+            metrics_node ={
+                "id": metrics_links_list[k],
+                "type": "link out",
+                "z": flow_id,
+                "name": "metrics",
+                "mode": "link",
+                "links": [
+                    metrics_id
+                ],
+                "x": flow_data[i]["x"] + 550,
+                "y": flow_data[i]["y"] + 60,
+                "wires": [],
+                "l": True
+
+            }
+            flow_data.append(metrics_node)
+
+            json_node={
+                "id": broadcast_node["wires"][1][0],
+                "type": "json",
+                "z": flow_id,
+                "name": "",
+                "property": "payload.data",
+                "action": "",
+                "pretty": False,
+                "x": flow_data[i]["x"] + 540,
+                "y": flow_data[i]["y"] + 100,
+                "wires": [
+                    [
+                        secrets.token_hex(8),
+                        secrets.token_hex(8)
+                    ]
+                ]
+
+            }
+
+            flow_data.append(json_node)
+
+            print(json_node["id"])
+
+
+
+
+
+
+            k += 1
 
 
 
