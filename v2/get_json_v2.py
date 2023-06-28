@@ -163,8 +163,8 @@ with open(filepath_flow, 'r') as f_flow:
     #create all the nodes in each property cluster
     for i in range(0,len(flow_data)):
 
-        if "name" in flow_data[i].keys() and flow_data[i]["name"] == "Property 1":
-
+        if "name" in flow_data[i].keys() and ("Property " in flow_data[i]["name"]) and (any(char.isdigit() for char in flow_data[i]["name"])):
+            
             change_node = {
                 "id": flow_data[i]["wires"][0][0],
                 "type": "change",
@@ -335,8 +335,8 @@ with open(filepath_flow, 'r') as f_flow:
                 "y": flow_data[i]["y"] + 60,
                 "wires": [],
                 "l": True
-
             }
+
             flow_data.append(metrics_node)
 
             json_node={
@@ -351,7 +351,6 @@ with open(filepath_flow, 'r') as f_flow:
                 "y": flow_data[i]["y"] + 100,
                 "wires": [
                     [
-                        secrets.token_hex(8),
                         secrets.token_hex(8)
                     ]
                 ]
@@ -360,20 +359,74 @@ with open(filepath_flow, 'r') as f_flow:
 
             flow_data.append(json_node)
 
-            print(json_node["id"])
+            debug_node2 = {
+                "id": broadcast_node["wires"][1][1],
+                "type": "debug",
+                "z": flow_id,
+                "name": "",
+                "active": False,
+                "tosidebar": True,
+                "console": False,
+                "tostatus": False,
+                "complete": "true",
+                "targetType": "full",
+                "statusVal": "",
+                "statusType": "auto",
+                "x": flow_data[i]["x"] + 540,
+                "y": flow_data[i]["y"] + 140,
+                "wires": []
+            }
 
+            flow_data.append(debug_node2)
 
+            change_node3 = {
+                "id": json_node["wires"][0][0],
+                "type": "change",
+                "z": flow_id,
+                "name": "",
+                "rules": [
+                    {
+                        "t": "set",
+                        "p": "target",
+                        "pt": "msg",
+                        "to": "southbound.updateValue",
+                        "tot": "str"
+                    }
+                ],
+                "action": "",
+                "property": "",
+                "from": "",
+                "to": "",
+                "reg": False,
+                "x": flow_data[i]["x"] + 730,
+                "y": flow_data[i]["y"] + 100,
+                "wires": [
+                    [
+                        secrets.token_hex(8)
+                    ]
+                ]
+            }
 
+            flow_data.append(change_node3)
 
+            link_node3 = {
+                "id": change_node3["wires"][0][0],
+                "type": "link call",
+                "z": flow_id,
+                "name": "",
+                "links": [],
+                "linkType": "dynamic",
+                "timeout": "30",
+                "x": flow_data[i]["x"] + 890,
+                "y": flow_data[i]["y"] + 100,
+                "wires": [
+                    []
+                ]
+            }
 
+            flow_data.append(link_node3)
 
             k += 1
-
-
-
-
-
-
 
 with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)  
