@@ -1,0 +1,940 @@
+{
+  "assetAdministrationShells": [
+    {
+      "hasDataSpecification": [],
+      "derivedFrom": {
+        "keys": [
+          {
+            "type": "AssetAdministrationShell",
+            "local": false,
+            "value": "www.admin-shell.io/aas/sample-series-aas/1/1",
+            "index": 0,
+            "idType": "URI"
+          }
+        ]
+      },
+      "asset": {
+        "keys": [
+          {
+            "type": "Asset",
+            "local": true,
+            "value": "https://example.prosys.com/ids/asset/3272_8020_8012_9293",
+            "index": 0,
+            "idType": "IRI"
+          }
+        ]
+      },
+      "submodels": [
+        {
+          "keys": [
+            {
+              "type": "Submodel",
+              "local": true,
+              "value": "https://example.prosys.com/ids/sm/0105_3103_7012_6238",
+              "index": 0,
+              "idType": "IRI"
+            }
+          ]
+        },
+        {
+          "keys": [
+            {
+              "type": "Submodel",
+              "local": true,
+              "value": "https://example.prosys.com/ids/sm/7225_3103_7012_5309",
+              "index": 0,
+              "idType": "IRI"
+            }
+          ]
+        },
+        {
+          "keys": [
+            {
+              "type": "Submodel",
+              "local": true,
+              "value": "https://example.prosys.com/ids/sm/1035_3103_7012_7542",
+              "index": 0,
+              "idType": "IRI"
+            }
+          ]
+        }
+      ],
+      "conceptDictionaries": [],
+      "identification": {
+        "idType": "IRI",
+        "id": "https://example.prosys.com/ids/aas/9574_3103_7012_8644"
+      },
+      "administration": {
+        "version": "1",
+        "revision": "0"
+      },
+      "idShort": "PROSYS_OPC_UA",
+      "modelType": {
+        "name": "AssetAdministrationShell"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "hasDataSpecification": [],
+      "identification": {
+        "idType": "IRI",
+        "id": "https://example.prosys.com/ids/asset/3272_8020_8012_9293"
+      },
+      "idShort": "PROSYS_SImulation_Server",
+      "modelType": {
+        "name": "Asset"
+      },
+      "kind": "Instance",
+      "descriptions": [
+        {
+          "language": "EN",
+          "text": "Prosys OPC-UA Simulation Server"
+        }
+      ]
+    }
+  ],
+  "submodels": [
+    {
+      "semanticId": {
+        "keys": []
+      },
+      "qualifiers": [],
+      "hasDataSpecification": [],
+      "identification": {
+        "idType": "IRI",
+        "id": "https://example.prosys.com/ids/sm/0105_3103_7012_6238"
+      },
+      "idShort": "Identification",
+      "modelType": {
+        "name": "Submodel"
+      },
+      "kind": "Instance",
+      "submodelElements": [
+        {
+          "value": "PROSYS",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-BAA001#006",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Manufacturer",
+          "category": "CONSTANT",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "https://www.prosysopc.com/products/opc-ua-simulation-server/",
+          "semanticId": {
+            "keys": []
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "ManufacturerURI",
+          "category": "PARAMETER",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "PROSYS OPC UA Simulation Server Free Edition",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-BAD847#003",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Edition",
+          "category": "CONSTANT",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "5.0.x",
+          "semanticId": {
+            "keys": []
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Version",
+          "category": "CONSTANT",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "mimeType": "image/png",
+          "value": "/prosys-logo-s.png",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "https://example.prosys.com/ids/cd/6582_7122_3012_0158",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "TypThumbnail",
+          "category": "PARAMETER",
+          "modelType": {
+            "name": "File"
+          },
+          "kind": "Instance"
+        }
+      ]
+    },
+    {
+      "semanticId": {
+        "keys": []
+      },
+      "qualifiers": [],
+      "hasDataSpecification": [],
+      "identification": {
+        "idType": "IRI",
+        "id": "https://example.prosys.com/ids/sm/7225_3103_7012_5309"
+      },
+      "idShort": "DocuVDI2770",
+      "modelType": {
+        "name": "Submodel"
+      },
+      "kind": "Instance",
+      "submodelElements": [
+        {
+          "ordered": false,
+          "allowDuplicates": false,
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-AAD001#001",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "DocCatalogue",
+          "category": "PARAMETER",
+          "modelType": {
+            "name": "SubmodelElementCollection"
+          },
+          "value": [
+            {
+              "value": "PROSYS OPC UA Simulation Server - User Manual",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD004#007",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DocTitle",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "14/04/2016",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD005#006",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DocVersion",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "ENGB",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD000#002",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DocLanguage",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "mimeType": "application/pdf",
+              "value": "/aasx/files/Prosys_OPC_UA_Simulation_Server_UserManual.pdf",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD005#008",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "File",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "File"
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "Prosys_OPC_UA_Simulation_Server_UserManual.pdf",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD005#005",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "FileName",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "mimeType": "application/pdf",
+              "value": "https://downloads.prosysopc.com/opcua/apps/JavaServer/dist/2.2.2-109/Prosys_OPC_UA_Simulation_Server_UserManual.pdf",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD000#001",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "Downloads",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "File"
+              },
+              "kind": "Instance"
+            }
+          ],
+          "kind": "Instance"
+        }
+      ]
+    },
+    {
+      "semanticId": {
+        "keys": []
+      },
+      "qualifiers": [],
+      "hasDataSpecification": [],
+      "identification": {
+        "idType": "IRI",
+        "id": "https://example.prosys.com/ids/sm/1035_3103_7012_7542"
+      },
+      "idShort": "OperationalData",
+      "modelType": {
+        "name": "Submodel"
+      },
+      "kind": "Instance",
+      "submodelElements": [
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "https://example.prosys.com/ids/cd/5323_8030_8012_7529",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Counter",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": "double"
+            }
+          },
+          "kind": "Instance",
+          "descriptions": [
+            {
+              "language": "en",
+              "text": "Counter"
+            }
+          ]
+        },
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "https://example.prosys.com/ids/cd/5323_8030_8012_7529",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "RandomNumber",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": "double"
+            }
+          },
+          "kind": "Instance",
+          "descriptions": [
+            {
+              "language": "en",
+              "text": "Random Number"
+            }
+          ]
+        },
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "https://example.prosys.com/ids/cd/5323_8030_8012_7529",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Sawtooth",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance",
+          "descriptions": [
+            {
+              "language": "en",
+              "text": "Sawtooth simulated signal form"
+            }
+          ]
+        },
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "https://example.prosys.com/ids/cd/5323_8030_8012_7529",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Sinusoid",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": "double"
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "https://example.prosys.com/ids/cd/5323_8030_8012_7529",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Square",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": "double"
+            }
+          },
+          "kind": "Instance",
+          "descriptions": [
+            {
+              "language": "en",
+              "text": "The current status of the cylinder "
+            }
+          ]
+        },
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "https://example.prosys.com/ids/cd/5323_8030_8012_7529",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Triangle",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": "double"
+            }
+          },
+          "kind": "Instance",
+          "descriptions": [
+            {
+              "language": "en",
+              "text": "Working cycle counter"
+            }
+          ]
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "https://example.prosys.com/ids/aas/9574_3103_7012_8644",
+                "index": 0,
+                "idType": "IRI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "Counter",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "CounterEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "https://example.prosys.com/ids/aas/9574_3103_7012_8644",
+                "index": 0,
+                "idType": "IRI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "RandomNumber",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "RandomNumberEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "https://example.prosys.com/ids/aas/9574_3103_7012_8644",
+                "index": 0,
+                "idType": "IRI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "Sawtooth",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "SawtoothEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "https://example.prosys.com/ids/aas/9574_3103_7012_8644",
+                "index": 0,
+                "idType": "IRI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "Sinusoid",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "SinusoidEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "https://example.prosys.com/ids/aas/9574_3103_7012_8644",
+                "index": 0,
+                "idType": "IRI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "Square",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "SquareEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "https://example.prosys.com/ids/aas/9574_3103_7012_8644",
+                "index": 0,
+                "idType": "IRI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "Triangle",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "TriangleEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        }
+      ]
+    }
+  ],
+  "conceptDescriptions": [
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "https://example.prosys.com/ids/cd/6582_7122_3012_0158"
+      },
+      "idShort": "TypThumbnail",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": []
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "en",
+                "text": "TypThumbnail"
+              },
+              {
+                "language": "de",
+                "text": "Vorschaubild"
+              }
+            ],
+            "shortName": [
+              {
+                "language": "en",
+                "text": "TypThumbnail"
+              }
+            ],
+            "unit": "",
+            "dataType": "",
+            "definition": [
+              {
+                "language": "de",
+                "text": "Darstellung des Produkttyps in kleinem Format"
+              },
+              {
+                "language": "en",
+                "text": "Small picture of the product type"
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "https://example.prosys.com/ids/cd/5323_8030_8012_7529"
+      },
+      "idShort": "SignalElement",
+      "category": "VARIABLE",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "0161-1#00-013009#1",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [],
+            "shortName": [],
+            "unit": "",
+            "sourceOfDefinition": "https://www.eotd.org",
+            "dataType": "REAL_MEASURE",
+            "definition": []
+          }
+        }
+      ],
+      "isCaseOf": []
+    }
+  ]
+}
