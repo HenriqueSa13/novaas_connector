@@ -188,7 +188,7 @@
         "type": "unsafe-function",
         "z": "41b3a1439ccec2c1",
         "name": "",
-        "func": "var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n});\nvar outMsg = {};\nvar ObsObj = context.flow.get('ObsObj');\nObsObj.id = uuid;\nvar timestamp = context.flow.get(\"$parent.timestamp\");\nif (typeof timestamp == 'undefined') {\n    timestamp = new Date().getTime();\n}\nelse {\n    ObsObj.timestamp = timestamp;\n}\nObsObj.payload = context.flow.get(\"variable\");\noutMsg.payload = ObsObj;\nreturn outMsg;",
+        "func": "var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n});\nvar outMsg = {};\nvar ObsObj = context.flow.get('ObsObj');\nObsObj.id = uuid;\nvar timestamp = context.flow.get(\"$parent.timestamp\");\nif (typeof timestamp == 'undefined') {\n    timestamp = new Date().getTime();\n    ObsObj.timestamp = timestamp;\n}\nelse {\n    ObsObj.timestamp = timestamp;\n}\nObsObj.payload = context.flow.get(\"variable\");\noutMsg.payload = ObsObj;\nreturn outMsg;",
         "outputs": 1,
         "noerr": 0,
         "x": 1635,
@@ -333,7 +333,8 @@
             "4be0576d4487e1ca",
             "1103084ec6579d65",
             "d57f305ac53e4d3f",
-            "f8b354e5d9771dda"
+            "f8b354e5d9771dda",
+            "41d1269376597f69"
         ],
         "x": 134,
         "y": 59,
@@ -446,6 +447,8 @@
         "interval": 1,
         "estimation": false,
         "ignore": false,
+        "pauseAtStartup": false,
+        "topicDependent": false,
         "x": 1330,
         "y": 2080,
         "wires": [
@@ -497,7 +500,7 @@
         "y": 200,
         "wires": [
             [
-                "1103084ec6579d65"
+                "41d1269376597f69"
             ]
         ]
     },
@@ -2005,13 +2008,13 @@
         "z": "128ab3134a54f6b4",
         "name": "metrics",
         "links": [
-            "2779d6b6a0f7b1cc",
+            "f3137293845d295d",
             "38b37541ec9d7086",
-            "5df3fe8b89186d53",
-            "77b206c3d0825bf2",
             "cd39ec5da0b7b743",
+            "2779d6b6a0f7b1cc",
+            "77b206c3d0825bf2",
             "ebeaa83d4abb8b92",
-            "f3137293845d295d"
+            "5df3fe8b89186d53"
         ],
         "x": 730,
         "y": 2080,
@@ -2061,6 +2064,26 @@
         "y": 2060,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "41d1269376597f69",
+        "type": "function",
+        "z": "128ab3134a54f6b4",
+        "g": "6aa9beecbf5f8d23",
+        "name": "check connected",
+        "func": "let connected = context.flow.get(\"connected\");\nif(connected) return msg;\nelse return null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 200,
+        "wires": [
+            [
+                "1103084ec6579d65"
+            ]
         ]
     }
 ]

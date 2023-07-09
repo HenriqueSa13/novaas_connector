@@ -161,6 +161,12 @@ with open(filepath_flow, 'r') as f_flow:
 
     k=0 # aux int to iterate through metrics list
     #create all the nodes in each property cluster
+
+    #flexdash has links with hex_id from other flows
+    #flexdash_link_id = input("Enter the 8-bit hexadecimal node id from the flexdash link call: ")
+    
+    flexdash_link_id = "8cb87649afd62fd8" #testing
+
     for i in range(0,len(flow_data)):
 
         if "name" in flow_data[i].keys() and ("Property " in flow_data[i]["name"]) and (any(char.isdigit() for char in flow_data[i]["name"])):
@@ -305,7 +311,7 @@ with open(filepath_flow, 'r') as f_flow:
                 "name": "",
                 "delaying": "unrelated",
                 "msgControl": False,
-                "outputs": 2,
+                "outputs": 3,
                 "x": flow_data[i]["x"] + 240,
                 "y": flow_data[i]["y"] + 120,
                 "wires": [
@@ -314,6 +320,9 @@ with open(filepath_flow, 'r') as f_flow:
                     ],
                     [
                         secrets.token_hex(8),
+                        secrets.token_hex(8)
+                    ],
+                    [
                         secrets.token_hex(8)
                     ]
                 ]
@@ -372,8 +381,8 @@ with open(filepath_flow, 'r') as f_flow:
                 "targetType": "full",
                 "statusVal": "",
                 "statusType": "auto",
-                "x": flow_data[i]["x"] + 540,
-                "y": flow_data[i]["y"] + 140,
+                "x": flow_data[i]["x"] + 700,
+                "y": flow_data[i]["y"] + 60,
                 "wires": []
             }
 
@@ -426,7 +435,27 @@ with open(filepath_flow, 'r') as f_flow:
 
             flow_data.append(link_node3)
 
+            flexdash_link_node = {
+                "id": broadcast_node["wires"][2][0],
+                "type": "link call",
+                "z": flow_id,
+                "name": "",
+                "links": [
+                    flexdash_link_id
+                ],
+                "linkType": "static",
+                "timeout": "30",
+                "x": flow_data[i]["x"] + 550,
+                "y": flow_data[i]["y"] + 140,
+                "wires": [
+                    []
+                ]
+            }
+
+            flow_data.append(flexdash_link_node)
+
             k += 1
+
 
 with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)  

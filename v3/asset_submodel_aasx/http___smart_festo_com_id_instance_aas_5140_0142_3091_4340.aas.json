@@ -1,0 +1,1521 @@
+{
+  "assetAdministrationShells": [
+    {
+      "hasDataSpecification": [],
+      "derivedFrom": {
+        "keys": [
+          {
+            "type": "AssetAdministrationShell",
+            "local": false,
+            "value": "www.admin-shell.io/aas/sample-series-aas/1/1",
+            "index": 0,
+            "idType": "URI"
+          }
+        ]
+      },
+      "asset": {
+        "keys": [
+          {
+            "type": "Asset",
+            "local": true,
+            "value": "http://pk.festo.com/LX7GYCYYJKR",
+            "index": 0,
+            "idType": "URI"
+          }
+        ]
+      },
+      "submodels": [
+        {
+          "keys": [
+            {
+              "type": "Submodel",
+              "local": true,
+              "value": "http://smart.festo.com/id/instance/5312_1142_3091_4614",
+              "index": 0,
+              "idType": "URI"
+            }
+          ]
+        },
+        {
+          "keys": [
+            {
+              "type": "Submodel",
+              "local": true,
+              "value": "http://smart.festo.com/id/instance/0542_1142_3091_8974",
+              "index": 0,
+              "idType": "URI"
+            }
+          ]
+        },
+        {
+          "keys": [
+            {
+              "type": "Submodel",
+              "local": true,
+              "value": "http://smart.festo.com/id/instance/3002_1142_3091_3839",
+              "index": 0,
+              "idType": "URI"
+            }
+          ]
+        },
+        {
+          "keys": [
+            {
+              "type": "Submodel",
+              "local": true,
+              "value": "www.company.com/ids/sm/9055_4122_4002_7570",
+              "index": 0,
+              "idType": "URI"
+            }
+          ]
+        }
+      ],
+      "conceptDictionaries": [],
+      "identification": {
+        "idType": "IRDI",
+        "id": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340"
+      },
+      "administration": {
+        "version": "1",
+        "revision": "0"
+      },
+      "idShort": "DPDM",
+      "modelType": {
+        "name": "AssetAdministrationShell"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "hasDataSpecification": [],
+      "identification": {
+        "idType": "URI",
+        "id": "http://pk.festo.com/LX7GYCYYJKR"
+      },
+      "idShort": "LX7GYCYYJKR",
+      "modelType": {
+        "name": "Asset"
+      },
+      "kind": "Instance",
+      "descriptions": [
+        {
+          "language": "DE",
+          "text": "Magnetventil"
+        },
+        {
+          "language": "EN",
+          "text": "solenoid valve"
+        }
+      ]
+    }
+  ],
+  "submodels": [
+    {
+      "semanticId": {
+        "keys": []
+      },
+      "qualifiers": [],
+      "hasDataSpecification": [],
+      "identification": {
+        "idType": "URI",
+        "id": "http://smart.festo.com/id/instance/3002_1142_3091_3839"
+      },
+      "idShort": "Datasheet",
+      "modelType": {
+        "name": "Submodel"
+      },
+      "kind": "Instance",
+      "submodelElements": [
+        {
+          "value": "6",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-AAP898#003",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Size",
+          "category": "CONSTANT",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "15",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-AAD002#001",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Stroke",
+          "category": "PARAMETER",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "1,8 ... 8",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-AAB836#006",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "OperatingPressure",
+          "category": "PARAMETER",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "20,7",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-BAD875#006",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Weight",
+          "category": "PARAMETER",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "M5",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-AAK168#004",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "PneuConnection",
+          "category": "PARAMETER",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "any",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-AAQ211#003",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "AssemblyPosition",
+          "category": "CONSTANT",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "-10 ... 80 °C",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-BAE507#002",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "AmbientTemperature ",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "double-acting",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-BAB278#004",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "ModeOfOperation",
+          "category": "CONSTANT",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "P",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-BAE235#003",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Cushioning ",
+          "category": "CONSTANT",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        }
+      ]
+    },
+    {
+      "semanticId": {
+        "keys": []
+      },
+      "qualifiers": [],
+      "hasDataSpecification": [],
+      "identification": {
+        "idType": "URI",
+        "id": "http://smart.festo.com/id/instance/5312_1142_3091_4614"
+      },
+      "idShort": "Identification",
+      "modelType": {
+        "name": "Submodel"
+      },
+      "kind": "Instance",
+      "submodelElements": [
+        {
+          "value": "Festo AG & Co. KG",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-BAA001#006",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Manufacturer",
+          "category": "CONSTANT",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "http://www.festo.com",
+          "semanticId": {
+            "keys": []
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "ManufacturerURI",
+          "category": "PARAMETER",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "DPDM-6-15-PA",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-BAD847#003",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "ProductCode",
+          "category": "CONSTANT",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "K258",
+          "semanticId": {
+            "keys": []
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "SerialNumber",
+          "category": "CONSTANT",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "mimeType": "image/jpeg",
+          "value": "/noaas_concerned_asset.jpg",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "https://example.com/ids/cd/6582_7122_3012_0158",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "TypThumbnail",
+          "category": "PARAMETER",
+          "modelType": {
+            "name": "File"
+          },
+          "kind": "Instance"
+        }
+      ]
+    },
+    {
+      "semanticId": {
+        "keys": []
+      },
+      "qualifiers": [],
+      "hasDataSpecification": [],
+      "identification": {
+        "idType": "URI",
+        "id": "http://smart.festo.com/id/instance/0542_1142_3091_8974"
+      },
+      "idShort": "DocuVDI2770",
+      "modelType": {
+        "name": "Submodel"
+      },
+      "kind": "Instance",
+      "submodelElements": [
+        {
+          "ordered": false,
+          "allowDuplicates": false,
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-AAD001#001",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "DocCatalogue",
+          "category": "PARAMETER",
+          "modelType": {
+            "name": "SubmodelElementCollection"
+          },
+          "value": [
+            {
+              "value": "Compact cylinders DPDM, multimount",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD004#007",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DocTitle",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "10/2018",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD005#006",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DocVersion",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "ENGB",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD000#002",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DocLanguage",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "mimeType": "application/pdf",
+              "value": "/aasx/Document/DPDM_EN.pdf",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD005#008",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "File",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "File"
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "DPDM_EN.pdf",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD005#005",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "FileName",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "mimeType": "application/pdf",
+              "value": "http://www.festo.com/docu/4830902",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "0173-1#02-AAD000#001",
+                    "index": 0,
+                    "idType": "IRDI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "Downloads",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "File"
+              },
+              "kind": "Instance"
+            }
+          ],
+          "kind": "Instance"
+        }
+      ]
+    },
+    {
+      "semanticId": {
+        "keys": []
+      },
+      "qualifiers": [],
+      "hasDataSpecification": [],
+      "identification": {
+        "idType": "URI",
+        "id": "www.company.com/ids/sm/9055_4122_4002_7570"
+      },
+      "idShort": "OperationalData",
+      "modelType": {
+        "name": "Submodel"
+      },
+      "kind": "Instance",
+      "submodelElements": [
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-AAB836#006",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "CurrentOperatingPressure",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance",
+          "descriptions": []
+        },
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-AAV535#002",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "ResponseTime",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-BAG100#003",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "ValvePosition",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-BAF128#002",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "ResponseTimeMovingAvg",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance"
+        },
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-BAG100#003",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "CylinderStatus",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance",
+          "descriptions": [
+            {
+              "language": "en",
+              "text": "The current status of the cylinder "
+            }
+          ]
+        },
+        {
+          "value": "",
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "0173-1#02-AAZ812#001",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "Cycle",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance",
+          "descriptions": [
+            {
+              "language": "en",
+              "text": "Working cycle counter"
+            }
+          ]
+        },
+        {
+          "value": "",
+          "valueId": {
+            "keys": []
+          },
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "https://example.com/ids/cd/3495_4132_0102_4334",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "ResponseTimePred",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "Property"
+          },
+          "valueType": {
+            "dataObjectType": {
+              "name": ""
+            }
+          },
+          "kind": "Instance",
+          "descriptions": [
+            {
+              "language": "en",
+              "text": "Future response time prediction "
+            }
+          ]
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340",
+                "index": 0,
+                "idType": "IRDI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "CurrentOperatingPressure",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "CurrentOperatingPressureEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340",
+                "index": 0,
+                "idType": "IRDI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "ResponseTime",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "ResponseTimeEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340",
+                "index": 0,
+                "idType": "IRDI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "ValvePosition",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "ValvePositionEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340",
+                "index": 0,
+                "idType": "IRDI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "ResponseTimeMovingAvg",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "ResponseTimeMovingAvgEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340",
+                "index": 0,
+                "idType": "IRDI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "CylinderStatus",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "CylinderStatusEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340",
+                "index": 0,
+                "idType": "IRDI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "Cycle",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "CycleEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        },
+        {
+          "observed": {
+            "keys": [
+              {
+                "type": "AssetAdministrationShell",
+                "local": true,
+                "value": "http://smart.festo.com/id/instance/aas/5140_0142_3091_4340",
+                "index": 0,
+                "idType": "IRDI"
+              },
+              {
+                "type": "Submodel",
+                "local": true,
+                "value": "OperationalData",
+                "index": 1,
+                "idType": "IdShort"
+              },
+              {
+                "type": "Property",
+                "local": true,
+                "value": "ResponseTimePred",
+                "index": 2,
+                "idType": "IdShort"
+              }
+            ]
+          },
+          "semanticId": {
+            "keys": []
+          },
+          "idShort": "ResponseTimePredictionEvt",
+          "category": "VARIABLE",
+          "modelType": {
+            "name": "BasicEvent"
+          },
+          "kind": "Instance"
+        }
+      ]
+    }
+  ],
+  "conceptDescriptions": [
+    {
+      "identification": {
+        "idType": "IRDI",
+        "id": "0173-1#02-AAB836#006"
+      },
+      "administration": {
+        "version": "",
+        "revision": "1"
+      },
+      "idShort": "CurrentOperatingPressure",
+      "category": "VARIABLE",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "en",
+                "text": "Current Operating Pressure"
+              }
+            ],
+            "shortName": [],
+            "unit": "bar",
+            "symbol": "P",
+            "dataType": "INTEGER_MEASURE",
+            "definition": [
+              {
+                "language": "en",
+                "text": "current operating pressure of the cylinder hydraulic system"
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": [
+        {
+          "keys": [
+            {
+              "type": "GlobalReference",
+              "local": false,
+              "value": "0173-1#02-AAB836#006",
+              "index": 0,
+              "idType": "IRDI"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identification": {
+        "idType": "IRDI",
+        "id": "0173-1#02-AAV535#002"
+      },
+      "administration": {
+        "version": "",
+        "revision": "1"
+      },
+      "idShort": "ResponseTime",
+      "category": "VARIABLE",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "en",
+                "text": "Response Time"
+              }
+            ],
+            "shortName": [],
+            "unit": "ms",
+            "symbol": "ms",
+            "dataType": "INTEGER_MEASURE",
+            "definition": [
+              {
+                "language": "en",
+                "text": "Response Time (control valve On and Cylinder Fwd, control valve OFF and Cylinder Reverse)"
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": [
+        {
+          "keys": [
+            {
+              "type": "GlobalReference",
+              "local": false,
+              "value": "0173-1#02-AAV535#002",
+              "index": 0,
+              "idType": "IRDI"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identification": {
+        "idType": "IRDI",
+        "id": "0173-1#02-BAG100#003"
+      },
+      "administration": {
+        "version": "",
+        "revision": "1"
+      },
+      "idShort": "ElementPosition",
+      "category": "VARIABLE",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "en",
+                "text": "Mechanical Element Position "
+              }
+            ],
+            "shortName": [],
+            "unit": "boolean",
+            "symbol": "-",
+            "dataType": "BOOLEAN",
+            "definition": []
+          }
+        }
+      ],
+      "isCaseOf": [
+        {
+          "keys": [
+            {
+              "type": "GlobalReference",
+              "local": false,
+              "value": "0173-1#02-BAG100#003",
+              "index": 0,
+              "idType": "IRDI"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identification": {
+        "idType": "IRDI",
+        "id": "0173-1#02-BAF128#002"
+      },
+      "idShort": "ResponseTimeMovingAvg",
+      "category": "VARIABLE",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "en",
+                "text": "Moving Average of the response time"
+              }
+            ],
+            "shortName": [],
+            "unit": "ms",
+            "valueFormat": "",
+            "symbol": "ms",
+            "dataType": "INTEGER_MEASURE",
+            "definition": [
+              {
+                "language": "en",
+                "text": "Moving Average of the response time calculated over the last 10 terms"
+              }
+            ]
+          }
+        },
+        {
+          "dataSpecification": {
+            "keys": []
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRDI",
+        "id": "0173-1#02-AAZ812#001"
+      },
+      "administration": {
+        "version": "",
+        "revision": "1"
+      },
+      "idShort": "Cycle",
+      "category": "PARAMETER",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "0173-1#02-AAZ812#001",
+                "index": 0,
+                "idType": "IRDI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "en",
+                "text": "working time (cycles)"
+              }
+            ],
+            "shortName": [],
+            "unit": "nr of cycles",
+            "unitId": {
+              "keys": []
+            },
+            "valueFormat": "REAL_COUNT",
+            "symbol": "-",
+            "dataType": "REAL_COUNT",
+            "definition": []
+          }
+        }
+      ],
+      "isCaseOf": [],
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "Number of shifting cycles to whch a system, sub-system, component or piping was subjected, during operation of a function"
+        }
+      ]
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "https://example.com/ids/cd/3495_4132_0102_4334"
+      },
+      "idShort": "ResponseTimePred",
+      "category": "VARIABLE",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "en",
+                "text": "Future respinse time prediction (comma separeted values)"
+              }
+            ],
+            "shortName": [],
+            "unit": "ms",
+            "valueFormat": "csv",
+            "symbol": "-",
+            "dataType": "STRING_TRANSLATABLE",
+            "definition": []
+          }
+        }
+      ],
+      "isCaseOf": [],
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "Future response time prediction"
+        }
+      ]
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "https://example.com/ids/cd/6582_7122_3012_0158"
+      },
+      "idShort": "TypThumbnail",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": []
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "en",
+                "text": "TypThumbnail"
+              },
+              {
+                "language": "de",
+                "text": "Vorschaubild"
+              }
+            ],
+            "shortName": [
+              {
+                "language": "en",
+                "text": "TypThumbnail"
+              }
+            ],
+            "unit": "",
+            "dataType": "",
+            "definition": [
+              {
+                "language": "de",
+                "text": "Darstellung des Produkttyps in kleinem Format"
+              },
+              {
+                "language": "en",
+                "text": "Small picture of the product type"
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    }
+  ]
+}

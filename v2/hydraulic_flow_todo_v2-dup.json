@@ -1,0 +1,1127 @@
+[
+    {
+        "id": "41b3a1439ccec2c1",
+        "type": "subflow",
+        "name": "Property handler",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 260,
+                "y": 520,
+                "wires": [
+                    {
+                        "id": "95ca925e8f8cf880"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1880,
+                "y": 500,
+                "wires": [
+                    {
+                        "id": "1274c1fecaa655a8",
+                        "port": 0
+                    },
+                    {
+                        "id": "78d0225e0b3a8fe6",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1880,
+                "y": 800,
+                "wires": [
+                    {
+                        "id": "e62907e7bcbce663",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1880,
+                "y": 860,
+                "wires": [
+                    {
+                        "id": "f02316f50a016d5d",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "PropertyName",
+                "type": "str",
+                "value": ""
+            },
+            {
+                "name": "PropertyLink",
+                "type": "str",
+                "value": ""
+            },
+            {
+                "name": "HistoryLength",
+                "type": "num",
+                "value": ""
+            },
+            {
+                "name": "PropertyLinkEvt",
+                "type": "str",
+                "value": ""
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99",
+        "status": {
+            "x": 1740,
+            "y": 700,
+            "wires": [
+                {
+                    "id": "5f9633884f5e4cd4",
+                    "port": 0
+                }
+            ]
+        }
+    },
+    {
+        "id": "127270a25c3d8888",
+        "type": "switch",
+        "z": "41b3a1439ccec2c1",
+        "name": "topic",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "observe",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "unobserve",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "init",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 890,
+        "y": 500,
+        "wires": [
+            [
+                "1274c1fecaa655a8",
+                "2cd93262147d3143"
+            ],
+            [
+                "0f6603d9f95134b3",
+                "78d0225e0b3a8fe6"
+            ],
+            [
+                "0f6603d9f95134b3"
+            ]
+        ]
+    },
+    {
+        "id": "1274c1fecaa655a8",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "PrepareOutput",
+        "func": "var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n\n// Create an Observation Event Object ------------------------------------\nvar observation = {};\nobservation.id = uuid;\n//observation.source = msg.source;\nobservation.direction = \"Output\";\n\nvar observableReference = \"\";\n\n//var observedKeys = msg.payload.observed.keys;\n/*for(var key in observedKeys){\n    if(parseInt(key) < 2){\n        observableReference = observableReference + observedKeys[key].value + \"/\";\n    } else if (parseInt(key) >= 2 && parseInt(key) < (observedKeys.length - 1)) {\n        observableReference = observableReference + observedKeys[key].value + \".\";\n    } else {\n        observableReference = observableReference + observedKeys[key].value;\n    }\n}*/\n\nobservableReference = env.get(\"PropertyLink\");\n\nobservation.observableReference = observableReference;\n//observation.source = msg.req.params.aasid + \"/\" + msg.req.params.submodelId + \"/\" + msg.req.params.id;\nobservation.source = env.get(\"PropertyLinkEvt\");\n\nif(context.flow.get(\"timestamp\")){\n    observation.timestamp = context.flow.get(\"timestamp\");\n} else{\n    observation.timestamp = new Date().getTime();\n}\nobservation.payload = \"Data Flow Created\";\n//observation.href = msg.href;\n// END Create an Observation Object --------------------------------\n//outputMsgs.push(observation);\ncontext.flow.set('ObsObj', observation);\n//msg.payload = outputMsgs;\n//msg.payload = JSON.stringify(observation);\n//msg.test = JSON.parse(msg.payload);\nmsg.payload = observation;\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1175,
+        "y": 500,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "2cd93262147d3143",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "func": "msg.topic = \"control\";\nmsg.payload = \"open\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1175,
+        "y": 540,
+        "wires": [
+            [
+                "f894203f2fd3ac35",
+                "5f9633884f5e4cd4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f894203f2fd3ac35",
+        "type": "gate",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "controlTopic": "control",
+        "defaultState": "closed",
+        "openCmd": "open",
+        "closeCmd": "close",
+        "toggleCmd": "toggle",
+        "defaultCmd": "default",
+        "persist": false,
+        "x": 1490,
+        "y": 800,
+        "wires": [
+            [
+                "e62907e7bcbce663"
+            ]
+        ]
+    },
+    {
+        "id": "e62907e7bcbce663",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "func": "var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n});\nvar outMsg = {};\nvar ObsObj = context.flow.get('ObsObj');\nObsObj.id = uuid;\nvar timestamp = context.flow.get(\"$parent.timestamp\");\nif (typeof timestamp == 'undefined') {\n    timestamp = new Date().getTime();\n    ObsObj.timestamp = timestamp;\n}\nelse {\n    ObsObj.timestamp = timestamp;\n}\nObsObj.payload = context.flow.get(\"variable\");\noutMsg.payload = ObsObj;\nreturn outMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1635,
+        "y": 800,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "0f6603d9f95134b3",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "func": "msg.topic = \"control\";\nmsg.payload = \"close\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1175,
+        "y": 660,
+        "wires": [
+            [
+                "f894203f2fd3ac35",
+                "5f9633884f5e4cd4"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "78d0225e0b3a8fe6",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "PrepareOutput",
+        "func": "var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n\n// Create an Observation Event Object ------------------------------------\nvar observation = {};\nobservation.id = uuid;\nobservation.source = msg.source;\nobservation.direction = \"Output\";\nvar observableReference = \"\";\n\n/*var observedKeys = msg.payload.observed.keys;\nfor (var key in observedKeys) {\n    if (parseInt(key) < 2) {\n        observableReference = observableReference + observedKeys[key].value + \"/\";\n    } else if (parseInt(key) >= 2 && parseInt(key) < (observedKeys.length - 1)) {\n        observableReference = observableReference + observedKeys[key].value + \".\";\n    } else {\n        observableReference = observableReference + observedKeys[key].value;\n    }\n}*/\n\nobservableReference = env.get(\"PropertyLink\");\n\nobservation.observableReference = observableReference;\n//observation.source = msg.req.params.aasid + \"/\" + msg.req.params.submodelId + \"/\" + msg.req.params.id;\nobservation.source = env.get(\"PropertyLinkEvt\");\n\nif(context.flow.get(\"timestamp\")){\n    observation.timestamp = context.flow.get(\"timestamp\");\n} else{\n    observation.timestamp = new Date().getTime();\n}\nobservation.payload = \"Data Flow removed\";\n//observation.href = msg.href;\n// END Create an Observation Object --------------------------------\n//outputMsgs.push(observation);\n\n//msg.payload = outputMsgs;\n//msg.payload = JSON.stringify(observation);\n//msg.test = JSON.parse(msg.payload);\ncontext.flow.set(\"ObsObj\", \"\");\nmsg.payload = observation;\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1175,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "96b701c2b50dc6f7",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "func": "var propertyName = env.get(\"PropertyName\");\nvar Outmsg = {};\nOutmsg.topic = msg.topic;\nvar variable = context.flow.get(\"$parent.\" + propertyName);\ncontext.flow.set(\"variable\", variable);\n\nOutmsg.payload = variable;\nreturn Outmsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 875,
+        "y": 800,
+        "wires": [
+            [
+                "f894203f2fd3ac35",
+                "f02316f50a016d5d"
+            ]
+        ],
+        "l": false
+    },
+    {
+        "id": "f02316f50a016d5d",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "responseTime",
+        "func": "var historyArrayName = \"$parent.\" + env.get(\"PropertyName\") + \"_hist\";\nvar outMsg = {};\noutMsg.topic = \"put\";\nvar timestamp = context.flow.get(\"$parent.timestamp\");\nif (typeof timestamp == \"undefined\") {\n    timestamp = new Date().getTime();\n}\noutMsg.payload = {\n    link: env.get(\"PropertyLink\"),\n    tstamp: timestamp,\n    data: context.flow.get(\"variable\")\n};\nlet history = context.flow.get(historyArrayName) || [];\nif (history.length >= env.get(\"HistoryLength\")) {\n    history.pop();\n}\nhistory.push(outMsg.payload);\ncontext.flow.set(historyArrayName, history);\nreturn outMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1075,
+        "y": 860,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "95ca925e8f8cf880",
+        "type": "switch",
+        "z": "41b3a1439ccec2c1",
+        "name": "scheduler",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "sbi scheduling data routing",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 440,
+        "y": 520,
+        "wires": [
+            [
+                "127270a25c3d8888"
+            ],
+            [
+                "96b701c2b50dc6f7"
+            ]
+        ]
+    },
+    {
+        "id": "5f9633884f5e4cd4",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "func": "if(msg.payload == \"open\"){\n    msg.payload = ({ fill: \"green\", text: \"Open\" });\n} else if (msg.payload == \"close\"){\n    msg.payload = ({ fill: \"red\", text: \"Closed\" });\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1535,
+        "y": 700,
+        "wires": [
+            []
+        ],
+        "l": false
+    },
+    {
+        "id": "128ab3134a54f6b4",
+        "type": "tab",
+        "label": "CLO/OperationalData",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6aa9beecbf5f8d23",
+        "type": "group",
+        "z": "128ab3134a54f6b4",
+        "name": "Set-up",
+        "style": {
+            "fill": "#e3f3d3",
+            "fill-opacity": "0.4",
+            "label": true
+        },
+        "nodes": [
+            "5c3897124d1d95c0",
+            "41d553602c61b3d5",
+            "4be0576d4487e1ca",
+            "1103084ec6579d65",
+            "f8b354e5d9771dda",
+            "d57f305ac53e4d3f",
+            "41d1269376597f69"
+        ],
+        "x": 134,
+        "y": 59,
+        "w": 1222,
+        "h": 182
+    },
+    {
+        "id": "568d6b198e562bcd",
+        "type": "msg-speed",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "frequency": "min",
+        "interval": 1,
+        "estimation": false,
+        "ignore": false,
+        "x": 1450,
+        "y": 2360,
+        "wires": [
+            [
+                "d9a9ec7b13ac68ad"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d9a9ec7b13ac68ad",
+        "type": "unsafe-function",
+        "z": "128ab3134a54f6b4",
+        "name": "stats",
+        "func": "var statsSBI = {};\nvar msgSpeed = msg.payload;\nvar msgIntervalAndFrequency = msg.intervalAndFrequency;\nstatsSBI.msgSpeed = msgSpeed;\nstatsSBI.IntervalAndFrequency = msgIntervalAndFrequency;\nstatsSBI.maxMsgs = context.flow.get(\"NrOfDataSources\") * 60;\nmsg.payload = statsSBI;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1710,
+        "y": 2340,
+        "wires": [
+            [
+                "50f874d57977fcf9"
+            ]
+        ]
+    },
+    {
+        "id": "4f1ed87887f71afd",
+        "type": "unsafe-function",
+        "z": "128ab3134a54f6b4",
+        "name": "statusNotification",
+        "func": "var statusCheck  = {};\nstatusCheck.connected = context.flow.get(\"connected\");\nstatusCheck.nrOfDataSources = context.flow.get(\"NrOfDataSources\");\nmsg.payload = {\"statusCheck\": statusCheck};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1670,
+        "y": 2500,
+        "wires": [
+            [
+                "ab057144cf917fb8"
+            ]
+        ]
+    },
+    {
+        "id": "806b9c4f8b70c7cd",
+        "type": "link in",
+        "z": "128ab3134a54f6b4",
+        "name": "trigger_in_1",
+        "links": [
+            "1103084ec6579d65"
+        ],
+        "x": 185,
+        "y": 480,
+        "wires": [
+            [
+                "60fc493c21196b3f"
+            ]
+        ]
+    },
+    {
+        "id": "c2ca411926b66486",
+        "type": "link in",
+        "z": "128ab3134a54f6b4",
+        "name": "trigger_in_2",
+        "links": [
+            "1103084ec6579d65"
+        ],
+        "x": 1725,
+        "y": 480,
+        "wires": [
+            [
+                "850ae93348f20888"
+            ]
+        ]
+    },
+    {
+        "id": "791f17302d8b4ca4",
+        "type": "link in",
+        "z": "128ab3134a54f6b4",
+        "name": "trigger_in_3",
+        "links": [
+            "1103084ec6579d65"
+        ],
+        "x": 85,
+        "y": 1680,
+        "wires": [
+            [
+                "7e4f682b4b2f5c11"
+            ]
+        ]
+    },
+    {
+        "id": "e5b5943b04487788",
+        "type": "inject",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "observe",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 1740,
+        "wires": [
+            [
+                "7e4f682b4b2f5c11"
+            ]
+        ]
+    },
+    {
+        "id": "ca845fe51ab78740",
+        "type": "inject",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "unobserve",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 1780,
+        "wires": [
+            [
+                "7e4f682b4b2f5c11"
+            ]
+        ]
+    },
+    {
+        "id": "6f7c2c99bba4d56c",
+        "type": "inject",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "observe",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 540,
+        "wires": [
+            [
+                "60fc493c21196b3f"
+            ]
+        ]
+    },
+    {
+        "id": "256bc3429f4f5210",
+        "type": "inject",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "unobserve",
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 580,
+        "wires": [
+            [
+                "60fc493c21196b3f"
+            ]
+        ]
+    },
+    {
+        "id": "d006dee3ddf2966c",
+        "type": "inject",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "observe",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1730,
+        "y": 540,
+        "wires": [
+            [
+                "850ae93348f20888"
+            ]
+        ]
+    },
+    {
+        "id": "65378e2d9b245964",
+        "type": "inject",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "unobserve",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1720,
+        "y": 580,
+        "wires": [
+            [
+                "850ae93348f20888"
+            ]
+        ]
+    },
+    {
+        "id": "f97d56a1024072d1",
+        "type": "inject",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "init",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 620,
+        "wires": [
+            [
+                "60fc493c21196b3f"
+            ]
+        ]
+    },
+    {
+        "id": "2ed0ae584bc3e15a",
+        "type": "inject",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "init",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 1820,
+        "wires": [
+            [
+                "7e4f682b4b2f5c11"
+            ]
+        ]
+    },
+    {
+        "id": "671f4b7036c5715d",
+        "type": "inject",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "init",
+        "payload": "",
+        "payloadType": "date",
+        "x": 1740,
+        "y": 620,
+        "wires": [
+            [
+                "850ae93348f20888"
+            ]
+        ]
+    },
+    {
+        "id": "60fc493c21196b3f",
+        "type": "subflow:41b3a1439ccec2c1",
+        "z": "128ab3134a54f6b4",
+        "name": "Property 1",
+        "x": 350,
+        "y": 480,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "850ae93348f20888",
+        "type": "subflow:41b3a1439ccec2c1",
+        "z": "128ab3134a54f6b4",
+        "name": "Property 2",
+        "x": 1910,
+        "y": 480,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "7e4f682b4b2f5c11",
+        "type": "subflow:41b3a1439ccec2c1",
+        "z": "128ab3134a54f6b4",
+        "name": "Property 3",
+        "x": 350,
+        "y": 1680,
+        "wires": [
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "id": "3dafa8ac0e092fdd",
+        "type": "http in",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "url": "/asset/hydraulic",
+        "method": "put",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 980,
+        "y": 2780,
+        "wires": [
+            [
+                "8d197c4c56f1922b",
+                "bcc990380363430d"
+            ]
+        ]
+    },
+    {
+        "id": "8d197c4c56f1922b",
+        "type": "http response",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1270,
+        "y": 2720,
+        "wires": []
+    },
+    {
+        "id": "fb246baf8b471438",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2270,
+        "y": 2780,
+        "wires": []
+    },
+    {
+        "id": "bcc990380363430d",
+        "type": "function",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "func": "var timestamp = context.flow.get(\"timestamp\") || 0;\nvar pressure = context.flow.get(\"OilPressure\") || 0.0;\nvar oilTank = context.flow.get(\"OilTank\") || \"\";\nvar pumps = context.flow.get(\"Pumps\") || \"\";\n\nvar payload = JSON.parse(msg.payload);\n\npressure = parseFloat(payload.pressure);\n\noilTank = {\n    \"OilLevel\": parseFloat(payload.oilLevel),\n    \"MaxOilLevel\": parseInt(payload.maxOilLevel, 2),\n    \"MinOilLevel\": parseInt(payload.minOilLevel, 2),\n    \"OilTemperature\": parseFloat(payload.temperature),\n    \"MaxOilTemperatureTreshold\": parseInt(payload.maxOilTemperature),\n    \"MinOilTemperatureTreshold\": parseInt(payload.minOilTemperature),\n    \"HeatersStatus\": parseInt(payload.heatersStatus, 2),\n    \"FanStatus\": parseInt(payload.coolingStatus, 2),\n    \"FanSpeed\": parseInt(payload.fanSpeed)\n}\n\npumps = {\n    \"SuctionValve1Status\": parseInt(payload.suctionValve1, 2),\n    \"SuctionValve2Status\": parseInt(payload.suctionValve2, 2),\n    \"SuctionValve3Status\": parseInt(payload.suctionValve3, 2),\n    \"PumpMotor1Status\": parseInt(payload.pumpMotor1, 2),\n    \"PumpMotor2Status\": parseInt(payload.pumpMotor2, 2),\n    \"PumpMotor3Status\": parseInt(payload.pumpMotor3, 2)\n}\n\nvar date = new Date(payload.timestamp);\n\ncontext.flow.set(\"timestamp\", date.getTime());\n//temperature = parseFloat(msg.payload.replace(/,/g, '.'));\ncontext.flow.set(\"OilTank\", oilTank);\ncontext.flow.set(\"Pumps\", pumps);\ncontext.flow.set(\"OilPressure\", pressure);\n\n\nreturn [msg, msg];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1560,
+        "y": 2780,
+        "wires": [
+            [
+                "85f040e0c14433f5"
+            ],
+            [
+                "fb246baf8b471438"
+            ]
+        ]
+    },
+    {
+        "id": "85f040e0c14433f5",
+        "type": "countdown",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "topic": "",
+        "payloadTimerStart": "true",
+        "payloadTimerStartType": "bool",
+        "payloadTimerStop": "false",
+        "payloadTimerStopType": "bool",
+        "timer": 30,
+        "resetWhileRunning": true,
+        "setTimeToNewWhileRunning": true,
+        "startCountdownOnControlMessage": false,
+        "x": 1770,
+        "y": 2720,
+        "wires": [
+            [
+                "2cdfcc11730bcf9b"
+            ],
+            [
+                "cb5acecddfdb5f2f"
+            ]
+        ]
+    },
+    {
+        "id": "02dfceee964538e5",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2210,
+        "y": 2700,
+        "wires": []
+    },
+    {
+        "id": "cb5acecddfdb5f2f",
+        "type": "debug",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2010,
+        "y": 2740,
+        "wires": []
+    },
+    {
+        "id": "2cdfcc11730bcf9b",
+        "type": "function",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "func": "let status = msg.payload;\ncontext.flow.set(\"connected\", status);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 2040,
+        "y": 2700,
+        "wires": [
+            [
+                "02dfceee964538e5"
+            ]
+        ]
+    },
+    {
+        "id": "5c3897124d1d95c0",
+        "type": "inject",
+        "z": "128ab3134a54f6b4",
+        "g": "6aa9beecbf5f8d23",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            },
+            {
+                "p": "initScheduling",
+                "v": "* * * * * * *",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 250,
+        "y": 100,
+        "wires": [
+            [
+                "41d553602c61b3d5",
+                "f8b354e5d9771dda"
+            ]
+        ]
+    },
+    {
+        "id": "41d553602c61b3d5",
+        "type": "unsafe-function",
+        "z": "128ab3134a54f6b4",
+        "g": "6aa9beecbf5f8d23",
+        "name": "Initialize Context",
+        "func": "context.flow.set(\"OilTank\", {});\ncontext.flow.set(\"Pumps\", {});\ncontext.flow.set(\"OilPressure\", -1);\n\ncontext.flow.set(\"NrOfDataSources\", 3);\ncontext.flow.set(\"connected\", false);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1240,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4be0576d4487e1ca",
+        "type": "inject",
+        "z": "128ab3134a54f6b4",
+        "g": "6aa9beecbf5f8d23",
+        "name": "Event Trigger",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.5",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "sbi scheduling data routing",
+        "payload": "",
+        "payloadType": "date",
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "41d1269376597f69"
+            ]
+        ]
+    },
+    {
+        "id": "1103084ec6579d65",
+        "type": "link out",
+        "z": "128ab3134a54f6b4",
+        "g": "6aa9beecbf5f8d23",
+        "name": "trigger_out",
+        "mode": "link",
+        "links": [
+            "791f17302d8b4ca4",
+            "806b9c4f8b70c7cd",
+            "c2ca411926b66486"
+        ],
+        "x": 1250,
+        "y": 200,
+        "wires": [],
+        "l": true
+    },
+    {
+        "id": "f8b354e5d9771dda",
+        "type": "function",
+        "z": "128ab3134a54f6b4",
+        "g": "6aa9beecbf5f8d23",
+        "name": "call Southbound Interface Reset Subscriptions",
+        "func": "msg.target = \"southbound.resetSebscriptions\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 140,
+        "wires": [
+            [
+                "d57f305ac53e4d3f"
+            ]
+        ]
+    },
+    {
+        "id": "d57f305ac53e4d3f",
+        "type": "link call",
+        "z": "128ab3134a54f6b4",
+        "g": "6aa9beecbf5f8d23",
+        "name": "",
+        "links": [],
+        "linkType": "dynamic",
+        "timeout": "30",
+        "x": 1260,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "233985a03f7af2aa",
+        "type": "link in",
+        "z": "128ab3134a54f6b4",
+        "name": "metrics",
+        "links": [
+            "2779d6b6a0f7b1cc",
+            "5cb4026b8da113e0",
+            "8f29e6907c0af09b"
+        ],
+        "x": 870,
+        "y": 2360,
+        "wires": [
+            [
+                "568d6b198e562bcd"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "50f874d57977fcf9",
+        "type": "change",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "target",
+                "pt": "msg",
+                "to": "southbound.metrics",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1920,
+        "y": 2340,
+        "wires": [
+            [
+                "ddd6397bb839158d"
+            ]
+        ]
+    },
+    {
+        "id": "ddd6397bb839158d",
+        "type": "link call",
+        "z": "128ab3134a54f6b4",
+        "name": "",
+        "links": [],
+        "linkType": "dynamic",
+        "timeout": "30",
+        "x": 2300,
+        "y": 2340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d71c20e4c91d2c13",
+        "type": "link in",
+        "z": "128ab3134a54f6b4",
+        "name": "driver.connection.check",
+        "links": [],
+        "x": 920,
+        "y": 2500,
+        "wires": [
+            [
+                "4f1ed87887f71afd"
+            ]
+        ],
+        "l": true
+    },
+    {
+        "id": "ab057144cf917fb8",
+        "type": "link out",
+        "z": "128ab3134a54f6b4",
+        "name": "driver.connection.check out",
+        "mode": "return",
+        "links": [],
+        "x": 2305,
+        "y": 2500,
+        "wires": []
+    },
+    {
+        "id": "41d1269376597f69",
+        "type": "function",
+        "z": "128ab3134a54f6b4",
+        "g": "6aa9beecbf5f8d23",
+        "name": "check connected",
+        "func": "let connected = context.flow.get(\"connected\");\nif(connected) return msg;\nelse return null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 830,
+        "y": 200,
+        "wires": [
+            [
+                "1103084ec6579d65"
+            ]
+        ]
+    }
+]

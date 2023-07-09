@@ -1,0 +1,1816 @@
+{
+  "assetAdministrationShells": [
+    {
+      "hasDataSpecification": [],
+      "asset": {
+        "keys": [
+          {
+            "type": "Asset",
+            "local": true,
+            "value": "https://nova.hydraulic.simulation.com/ids/asset/6563_5151_1112_8642",
+            "index": 0,
+            "idType": "IRI"
+          }
+        ]
+      },
+      "submodels": [
+        {
+          "keys": [
+            {
+              "type": "Submodel",
+              "local": true,
+              "value": "https://nova.hydraulic.simulation.com/ids/sm/8404_5151_1112_3085",
+              "index": 0,
+              "idType": "IRI"
+            }
+          ]
+        },
+        {
+          "keys": [
+            {
+              "type": "Submodel",
+              "local": true,
+              "value": "http://i40.customer.com/type/1/1/1A7B62B529F19152",
+              "index": 0,
+              "idType": "IRI"
+            }
+          ]
+        }
+      ],
+      "conceptDictionaries": [],
+      "identification": {
+        "idType": "IRI",
+        "id": "https://nova.hydraulic.simulation.com/ids/aas/6383_5151_1112_3966"
+      },
+      "idShort": "NOVAAS_Hydraulic_Unit",
+      "modelType": {
+        "name": "AssetAdministrationShell"
+      },
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "Model for Rolling Mill Hydraulic Unit simulation"
+        }
+      ]
+    }
+  ],
+  "assets": [
+    {
+      "hasDataSpecification": [],
+      "assetIdentificationModelRef": {
+        "keys": []
+      },
+      "identification": {
+        "idType": "IRI",
+        "id": "https://nova.hydraulic.simulation.com/ids/asset/6563_5151_1112_8642"
+      },
+      "idShort": "HydraulicUnit",
+      "modelType": {
+        "name": "Asset"
+      },
+      "kind": "Instance"
+    }
+  ],
+  "submodels": [
+    {
+      "semanticId": {
+        "keys": []
+      },
+      "qualifiers": [],
+      "hasDataSpecification": [],
+      "identification": {
+        "idType": "IRI",
+        "id": "https://nova.hydraulic.simulation.com/ids/sm/8404_5151_1112_3085"
+      },
+      "idShort": "OperationalData",
+      "modelType": {
+        "name": "Submodel"
+      },
+      "kind": "Instance",
+      "submodelElements": [
+        {
+          "ordered": false,
+          "allowDuplicates": false,
+          "semanticId": {
+            "keys": []
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "CLO",
+          "modelType": {
+            "name": "SubmodelElementCollection"
+          },
+          "value": [
+            {
+              "ordered": false,
+              "allowDuplicates": false,
+              "semanticId": {
+                "keys": []
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "OilTank",
+              "modelType": {
+                "name": "SubmodelElementCollection"
+              },
+              "value": [
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": [
+                      {
+                        "type": "ConceptDescription",
+                        "local": true,
+                        "value": "0173-1#02-AAJ456#003",
+                        "index": 0,
+                        "idType": "IRDI"
+                      }
+                    ]
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "OilLevel",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "OilLevelMax",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "OilLevelMin",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": [
+                      {
+                        "type": "ConceptDescription",
+                        "local": true,
+                        "value": "0173-1#02-AAZ824#001",
+                        "index": 0,
+                        "idType": "IRDI"
+                      }
+                    ]
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "OilTemperature",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": [
+                      {
+                        "type": "ConceptDescription",
+                        "local": true,
+                        "value": "0173-1#02-AAF584#003",
+                        "index": 0,
+                        "idType": "IRDI"
+                      }
+                    ]
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "MaxOilTemperatureTreshold",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": [
+                      {
+                        "type": "ConceptDescription",
+                        "local": true,
+                        "value": "0173-1#02-AAF585#003",
+                        "index": 0,
+                        "idType": "IRDI"
+                      }
+                    ]
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "MinOilTemperatureTreshold",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance",
+                  "descriptions": []
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "HeatersStatus",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "FanStatus",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "FanSpeed",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                }
+              ],
+              "kind": "Instance",
+              "descriptions": [
+                {
+                  "language": "en",
+                  "text": "Collection to wrap data about the hydraulic oil for Rolling Mill movements"
+                }
+              ]
+            },
+            {
+              "ordered": false,
+              "allowDuplicates": false,
+              "semanticId": {
+                "keys": []
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "Pumps",
+              "modelType": {
+                "name": "SubmodelElementCollection"
+              },
+              "value": [
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "SuctionValve1Status",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "SuctionValve2Status",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "SuctionValve3Status",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "PumpMotor1Status",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "PumpMotor2Status",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "PumpMotor3Status",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                }
+              ],
+              "kind": "Instance"
+            },
+            {
+              "ordered": false,
+              "allowDuplicates": false,
+              "semanticId": {
+                "keys": []
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DeliveryLine",
+              "modelType": {
+                "name": "SubmodelElementCollection"
+              },
+              "value": [
+                {
+                  "value": "",
+                  "semanticId": {
+                    "keys": [
+                      {
+                        "type": "ConceptDescription",
+                        "local": true,
+                        "value": "0173-1#02-BAA452#006",
+                        "index": 0,
+                        "idType": "IRDI"
+                      }
+                    ]
+                  },
+                  "constraints": [],
+                  "hasDataSpecification": [],
+                  "idShort": "OilPressure",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "Property"
+                  },
+                  "valueType": {
+                    "dataObjectType": {
+                      "name": ""
+                    }
+                  },
+                  "kind": "Instance"
+                },
+                {
+                  "observed": {
+                    "keys": [
+                      {
+                        "type": "AssetAdministrationShell",
+                        "local": true,
+                        "value": "https://nova.hydraulic.simulation.com/ids/aas/6383_5151_1112_3966",
+                        "index": 0,
+                        "idType": "IRI"
+                      },
+                      {
+                        "type": "Submodel",
+                        "local": true,
+                        "value": "OperationalData",
+                        "index": 1,
+                        "idType": "IdShort"
+                      },
+                      {
+                        "type": "SubmodelElementCollection",
+                        "local": true,
+                        "value": "CLO",
+                        "index": 2,
+                        "idType": "IdShort"
+                      },
+                      {
+                        "type": "SubmodelElementCollection",
+                        "local": true,
+                        "value": "DeliveryLine",
+                        "index": 3,
+                        "idType": "IdShort"
+                      },
+                      {
+                        "type": "Property",
+                        "local": true,
+                        "value": "OilPressure",
+                        "index": 4,
+                        "idType": "IdShort"
+                      }
+                    ]
+                  },
+                  "semanticId": {
+                    "keys": []
+                  },
+                  "idShort": "OilPressureEvt",
+                  "category": "VARIABLE",
+                  "modelType": {
+                    "name": "BasicEvent"
+                  },
+                  "kind": "Instance"
+                }
+              ],
+              "kind": "Instance"
+            },
+            {
+              "observed": {
+                "keys": [
+                  {
+                    "type": "AssetAdministrationShell",
+                    "local": true,
+                    "value": "https://nova.hydraulic.simulation.com/ids/aas/6383_5151_1112_3966",
+                    "index": 0,
+                    "idType": "IRI"
+                  },
+                  {
+                    "type": "Submodel",
+                    "local": true,
+                    "value": "OperationalData",
+                    "index": 1,
+                    "idType": "IdShort"
+                  },
+                  {
+                    "type": "SubmodelElementCollection",
+                    "local": true,
+                    "value": "CLO",
+                    "index": 2,
+                    "idType": "IdShort"
+                  },
+                  {
+                    "type": "SubmodelElementCollection",
+                    "local": true,
+                    "value": "OilTank",
+                    "index": 3,
+                    "idType": "IdShort"
+                  }
+                ]
+              },
+              "semanticId": {
+                "keys": []
+              },
+              "idShort": "TankEvt",
+              "category": "VARIABLE",
+              "modelType": {
+                "name": "BasicEvent"
+              },
+              "kind": "Instance"
+            },
+            {
+              "observed": {
+                "keys": [
+                  {
+                    "type": "AssetAdministrationShell",
+                    "local": true,
+                    "value": "https://nova.hydraulic.simulation.com/ids/aas/6383_5151_1112_3966",
+                    "index": 0,
+                    "idType": "IRI"
+                  },
+                  {
+                    "type": "Submodel",
+                    "local": true,
+                    "value": "OperationalData",
+                    "index": 1,
+                    "idType": "IdShort"
+                  },
+                  {
+                    "type": "SubmodelElementCollection",
+                    "local": true,
+                    "value": "CLO",
+                    "index": 2,
+                    "idType": "IdShort"
+                  },
+                  {
+                    "type": "SubmodelElementCollection",
+                    "local": true,
+                    "value": "Pumps",
+                    "index": 3,
+                    "idType": "IdShort"
+                  }
+                ]
+              },
+              "semanticId": {
+                "keys": []
+              },
+              "idShort": "PumpsEvt",
+              "category": "VARIABLE",
+              "modelType": {
+                "name": "BasicEvent"
+              },
+              "kind": "Instance"
+            }
+          ],
+          "kind": "Instance"
+        }
+      ],
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "Submodel providing data that can be extracted from the Asset"
+        }
+      ]
+    },
+    {
+      "semanticId": {
+        "keys": []
+      },
+      "qualifiers": [],
+      "hasDataSpecification": [],
+      "identification": {
+        "idType": "IRI",
+        "id": "http://i40.customer.com/type/1/1/1A7B62B529F19152"
+      },
+      "idShort": "Documentation",
+      "category": "CONSTANT",
+      "modelType": {
+        "name": "Submodel"
+      },
+      "kind": "Instance",
+      "submodelElements": [
+        {
+          "ordered": false,
+          "allowDuplicates": false,
+          "semanticId": {
+            "keys": [
+              {
+                "type": "ConceptDescription",
+                "local": true,
+                "value": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "constraints": [],
+          "hasDataSpecification": [],
+          "idShort": "OperatingManual",
+          "category": "",
+          "modelType": {
+            "name": "SubmodelElementCollection"
+          },
+          "value": [
+            {
+              "value": "DP02L9-JD01-A8100-ES001-CLO",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentId/Val",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DocumentId",
+              "category": "CONSTANT",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "03-02",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassId",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DocumentClassId",
+              "category": "CONSTANT",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "Operation (EN)",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassName",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DocumentClassName",
+              "category": "CONSTANT",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "VDI2770:2018",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassificationSystem",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DocumentClassificationSystem",
+              "category": "CONSTANT",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "NOVA",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationName",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "OrganizationName",
+              "category": "CONSTANT",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "NOVA School of Science and Technology",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationOfficialName",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "OrganizationOfficialName",
+              "category": "CONSTANT",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "CLO Hydraulic Unit",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "Title",
+              "category": "CONSTANT",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "value": "en-US",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion/Language",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "Language",
+              "category": "CONSTANT",
+              "modelType": {
+                "name": "Property"
+              },
+              "valueType": {
+                "dataObjectType": {
+                  "name": ""
+                }
+              },
+              "kind": "Instance"
+            },
+            {
+              "mimeType": "application/pdf",
+              "value": "/aasx/files/OperatingManual.pdf",
+              "semanticId": {
+                "keys": [
+                  {
+                    "type": "ConceptDescription",
+                    "local": true,
+                    "value": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile",
+                    "index": 0,
+                    "idType": "IRI"
+                  }
+                ]
+              },
+              "constraints": [],
+              "hasDataSpecification": [],
+              "idShort": "DigitalFile_PDF",
+              "category": "PARAMETER",
+              "modelType": {
+                "name": "File"
+              },
+              "kind": "Instance"
+            }
+          ],
+          "kind": "Instance"
+        }
+      ]
+    }
+  ],
+  "conceptDescriptions": [
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Document"
+      },
+      "idShort": "Document",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "Document"
+              }
+            ],
+            "unit": "",
+            "sourceOfDefinition": "[ISO 15519-1:2010]",
+            "dataType": "ENTITY",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Feste und geordnete Menge von für die Verwendung durch Personen bestimmte Informationen, die verwaltet und als Einheit zwischen Benutzern und System ausgetauscht werden kann."
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": [],
+      "descriptions": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentId/Val"
+      },
+      "idShort": "DocumentIdValue",
+      "category": "CONSTANT",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "DocumentId"
+              }
+            ],
+            "unit": "",
+            "sourceOfDefinition": "",
+            "dataType": "STRING",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "die eigentliche Identifikationsnummer"
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassId"
+      },
+      "idShort": "DocumentClassId",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "DocumentClassId"
+              }
+            ],
+            "unit": "",
+            "dataType": "STRING",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Eindeutige ID der Klasse in einer Klassifikation."
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassName"
+      },
+      "idShort": "DocumentClassName",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "DocumentClassName"
+              }
+            ],
+            "unit": "",
+            "dataType": "STRING_TRANSLATABLE",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Liste von sprachabhängigen Namen zur ClassId. "
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentClassification/ClassificationSystem"
+      },
+      "idShort": "DocumentClassificationSystem",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "EN",
+                "text": "Classification System"
+              },
+              {
+                "language": "DE",
+                "text": "Klassifikationssystem"
+              }
+            ],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "DocumentClassificationSystem"
+              }
+            ],
+            "unit": "",
+            "dataType": "STRING",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Eindeutige Kennung für ein Klassifikationssystem. Für Klassifikationen nach VDI 2770 muss \"VDI2770:2018\" verwenden werden."
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationName"
+      },
+      "idShort": "OrganizationName",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "DE",
+                "text": "gebräuchliche Bezeichnung für Organisation"
+              },
+              {
+                "language": "EN",
+                "text": "organization name"
+              }
+            ],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "OrganizationName"
+              }
+            ],
+            "unit": "",
+            "dataType": "STRING",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Die gebräuchliche Bezeichnung für die Organisation."
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Organization/OrganizationOfficialName"
+      },
+      "idShort": "OrganizationOfficialName",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "DE",
+                "text": "offizieller Name der Organisation"
+              },
+              {
+                "language": "EN",
+                "text": "official name of the organization"
+              }
+            ],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "OrganizationOfficialName"
+              }
+            ],
+            "unit": "",
+            "dataType": "STRING",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Der offizielle Namen der Organisation."
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": [
+        {
+          "keys": [
+            {
+              "type": "ConceptDescription",
+              "local": true,
+              "value": "0173-1#02-AAO677#002",
+              "index": 0,
+              "idType": "IRDI"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion"
+      },
+      "idShort": "DocumentVersion",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "www.admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "DE",
+                "text": "Version des Dokuments"
+              }
+            ],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "DocumentVersion"
+              }
+            ],
+            "unit": "",
+            "dataType": "",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Zu jedem Dokument muss eine Menge von mindestens einer Dokumentenversion existieren. Es können auch mehrere Dokumentenversionen ausgeliefert werden."
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersion/Language"
+      },
+      "idShort": "Language",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "EN",
+                "text": "Language"
+              },
+              {
+                "language": "DE",
+                "text": "Sprache"
+              }
+            ],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "Language"
+              }
+            ],
+            "unit": "",
+            "dataType": "STRING",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Eine Liste der im Dokument verwendeten Sprachen."
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/Description/Title"
+      },
+      "idShort": "Title",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "EN",
+                "text": "Title"
+              },
+              {
+                "language": "DE",
+                "text": "Titel"
+              }
+            ],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "Title"
+              }
+            ],
+            "unit": "",
+            "dataType": "STRING_TRANSLATABLE",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Sprachabhängiger Titel des Dokuments."
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/LifeCycleStatus/SetDate"
+      },
+      "idShort": "Date",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "www.admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "SetDate"
+              }
+            ],
+            "unit": "",
+            "dataType": "DATE",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Datum und Uhrzeit, an dem der Status festgelegt wurde. Es muss das Datumsformat „YYYY-MM-dd“ verwendet werden (Y = Jahr, M = Monat, d = Tag, siehe ISO 8601)."
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/DocumentVersionId/Val"
+      },
+      "idShort": "DocumentVersionIdValue",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "www.admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "DocumentVersionId"
+              }
+            ],
+            "unit": "",
+            "dataType": "STRING",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Verschiedene Versionen eines Dokuments müssen eindeutig identifizierbar sein. Die DocumentVersionId stellt eine innerhalb einer Domäne eindeutige Versionsidentifikationsnummer dar."
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRI",
+        "id": "www.vdi2770.com/blatt1/Entwurf/Okt18/cd/StoredDocumentRepresentation/DigitalFile"
+      },
+      "idShort": "DigitalFile",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [],
+            "shortName": [
+              {
+                "language": "EN?",
+                "text": "DigitalFile"
+              }
+            ],
+            "unit": "",
+            "dataType": "FILE",
+            "definition": [
+              {
+                "language": "DE",
+                "text": "Eine Datei, die die DocumentVersion repräsentiert. Neben der obligatorischen PDF/A Datei können weitere Dateien angegeben werden."
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": []
+    },
+    {
+      "identification": {
+        "idType": "IRDI",
+        "id": "0173-1#02-AAJ456#003"
+      },
+      "idShort": "Level",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "en",
+                "text": "Filling Level"
+              }
+            ],
+            "shortName": [
+              {
+                "language": "en",
+                "text": "Level"
+              }
+            ],
+            "unit": "",
+            "dataType": "REAL_MEASURE",
+            "definition": [
+              {
+                "language": "en",
+                "text": "largest elongation in terms of the height"
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": [],
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "largest elongation in terms of the height"
+        }
+      ]
+    },
+    {
+      "identification": {
+        "idType": "IRDI",
+        "id": "0173-1#02-AAF584#003"
+      },
+      "idShort": "MaxTemperature",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "en",
+                "text": "Max Temperature"
+              }
+            ],
+            "shortName": [
+              {
+                "language": "en",
+                "text": "MaxTemp"
+              }
+            ],
+            "unit": "Celsius",
+            "dataType": "REAL_MEASURE",
+            "definition": [
+              {
+                "language": "en",
+                "text": "maximum value of physical and thermodynamical state variable temperature dimensioned for an operational medium"
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": [],
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "Max Temperature Concept Description"
+        }
+      ]
+    },
+    {
+      "identification": {
+        "idType": "IRDI",
+        "id": "0173-1#02-AAF585#003"
+      },
+      "idShort": "MinTemperature",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [
+              {
+                "language": "en",
+                "text": "Min Temperature"
+              }
+            ],
+            "shortName": [
+              {
+                "language": "en",
+                "text": "MinTemp"
+              }
+            ],
+            "unit": "Celsius",
+            "dataType": "REAL_MEASURE",
+            "definition": []
+          }
+        }
+      ],
+      "isCaseOf": [],
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "Min Temperature Concept Description"
+        }
+      ]
+    },
+    {
+      "identification": {
+        "idType": "IRDI",
+        "id": "0173-1#02-BAA452#006"
+      },
+      "idShort": "OperatingPressure",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [],
+            "shortName": [
+              {
+                "language": "en",
+                "text": "OperatingPress"
+              }
+            ],
+            "unit": "bar",
+            "dataType": "REAL_MEASURE",
+            "definition": [
+              {
+                "language": "en",
+                "text": "The pressure which arises in a system part within the operating range"
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": [],
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "Operating Pressure Concept Description"
+        }
+      ]
+    },
+    {
+      "identification": {
+        "idType": "IRDI",
+        "id": "0173-1#02-AAZ824#001"
+      },
+      "idShort": "FluidTemperature",
+      "modelType": {
+        "name": "ConceptDescription"
+      },
+      "embeddedDataSpecifications": [
+        {
+          "dataSpecification": {
+            "keys": [
+              {
+                "type": "GlobalReference",
+                "local": false,
+                "value": "http://admin-shell.io/DataSpecificationTemplates/DataSpecificationIEC61360/2/0",
+                "index": 0,
+                "idType": "IRI"
+              }
+            ]
+          },
+          "dataSpecificationContent": {
+            "preferredName": [],
+            "shortName": [
+              {
+                "language": "en",
+                "text": "Fluid Temperature"
+              }
+            ],
+            "unit": "Celsius",
+            "dataType": "REAL_MEASURE",
+            "definition": [
+              {
+                "language": "en",
+                "text": "fluid temperature measured at a specific location at a certain point in time"
+              }
+            ]
+          }
+        }
+      ],
+      "isCaseOf": [],
+      "descriptions": [
+        {
+          "language": "en",
+          "text": "Fluid Temeperature Concept Description"
+        }
+      ]
+    }
+  ]
+}
