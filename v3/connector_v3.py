@@ -18,7 +18,6 @@ coll_list = list()
 evt_list = list()
 evt_name = ""
 n_properties_w_event = 0
-n_properties_in_flow = 0
 
 #check aas id
 aas_id = data["assetAdministrationShells"][0]["identification"]["id"]
@@ -68,12 +67,398 @@ while len(coll_list) != 0:
 print(evt_list)
 f.close()
 
-
 #-------------------------------------------------------------------------
 
 root = tk.Tk()
 root.withdraw()
 filepath_flow = tk.filedialog.askopenfilename(title="Node-Red flow JSON file:")
+
+# v3 = create property handler, property nodes, trigger in, timestamps
+# create before v2 (modular)
+
+with open(filepath_flow, 'r') as f_flow:
+
+    flow_data = json.load(f_flow)
+
+    for i in range(0,len(flow_data)):   
+        if "type" in flow_data[i].keys() and flow_data[i]["type"] == "tab":
+            flow_id = flow_data[i]["id"]
+    
+
+    property_handler = {
+        "id": "41b3a1439ccec2c1",
+        "type": "subflow",
+        "name": "Property handler",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 260,
+                "y": 520,
+                "wires": [
+                    {
+                        "id": "95ca925e8f8cf880"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 1880,
+                "y": 500,
+                "wires": [
+                    {
+                        "id": "1274c1fecaa655a8",
+                        "port": 0
+                    },
+                    {
+                        "id": "78d0225e0b3a8fe6",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1880,
+                "y": 800,
+                "wires": [
+                    {
+                        "id": "e62907e7bcbce663",
+                        "port": 0
+                    }
+                ]
+            },
+            {
+                "x": 1880,
+                "y": 860,
+                "wires": [
+                    {
+                        "id": "f02316f50a016d5d",
+                        "port": 0
+                    }
+                ]
+            }
+        ],
+        "env": [
+            {
+                "name": "PropertyName",
+                "type": "str",
+                "value": ""
+            },
+            {
+                "name": "PropertyLink",
+                "type": "str",
+                "value": ""
+            },
+            {
+                "name": "HistoryLength",
+                "type": "num",
+                "value": ""
+            },
+            {
+                "name": "PropertyLinkEvt",
+                "type": "str",
+                "value": ""
+            }
+        ],
+        "meta": {},
+        "color": "#DDAA99",
+        "status": {
+            "x": 1740,
+            "y": 700,
+            "wires": [
+                {
+                    "id": "5f9633884f5e4cd4",
+                    "port": 0
+                }
+            ]
+        }
+    }
+    node1 = {
+        "id": "127270a25c3d8888",
+        "type": "switch",
+        "z": "41b3a1439ccec2c1",
+        "name": "topic",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "observe",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "unobserve",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "init",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": False,
+        "outputs": 3,
+        "x": 890,
+        "y": 500,
+        "wires": [
+            [
+                "1274c1fecaa655a8",
+                "2cd93262147d3143"
+            ],
+            [
+                "0f6603d9f95134b3",
+                "78d0225e0b3a8fe6"
+            ],
+            [
+                "0f6603d9f95134b3"
+            ]
+        ]
+    }
+    node2 = {
+        "id": "1274c1fecaa655a8",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "PrepareOutput",
+        "func": "var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n\n// Create an Observation Event Object ------------------------------------\nvar observation = {};\nobservation.id = uuid;\n//observation.source = msg.source;\nobservation.direction = \"Output\";\n\nvar observableReference = \"\";\n\n//var observedKeys = msg.payload.observed.keys;\n/*for(var key in observedKeys){\n    if(parseInt(key) < 2){\n        observableReference = observableReference + observedKeys[key].value + \"/\";\n    } else if (parseInt(key) >= 2 && parseInt(key) < (observedKeys.length - 1)) {\n        observableReference = observableReference + observedKeys[key].value + \".\";\n    } else {\n        observableReference = observableReference + observedKeys[key].value;\n    }\n}*/\n\nobservableReference = env.get(\"PropertyLink\");\n\nobservation.observableReference = observableReference;\n//observation.source = msg.req.params.aasid + \"/\" + msg.req.params.submodelId + \"/\" + msg.req.params.id;\nobservation.source = env.get(\"PropertyLinkEvt\");\n\nif(context.flow.get(\"timestamp\")){\n    observation.timestamp = context.flow.get(\"timestamp\");\n} else{\n    observation.timestamp = new Date().getTime();\n}\nobservation.payload = \"Data Flow Created\";\n//observation.href = msg.href;\n// END Create an Observation Object --------------------------------\n//outputMsgs.push(observation);\ncontext.flow.set('ObsObj', observation);\n//msg.payload = outputMsgs;\n//msg.payload = JSON.stringify(observation);\n//msg.test = JSON.parse(msg.payload);\nmsg.payload = observation;\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1175,
+        "y": 500,
+        "wires": [
+            []
+        ],
+        "l": False
+    }
+    node3 = {
+        "id": "2cd93262147d3143",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "func": "msg.topic = \"control\";\nmsg.payload = \"open\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1175,
+        "y": 540,
+        "wires": [
+            [
+                "f894203f2fd3ac35",
+                "5f9633884f5e4cd4"
+            ]
+        ],
+        "l": False
+    }
+    node4 = {
+        "id": "f894203f2fd3ac35",
+        "type": "gate",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "controlTopic": "control",
+        "defaultState": "closed",
+        "openCmd": "open",
+        "closeCmd": "close",
+        "toggleCmd": "toggle",
+        "defaultCmd": "default",
+        "persist": False,
+        "x": 1490,
+        "y": 800,
+        "wires": [
+            [
+                "e62907e7bcbce663"
+            ]
+        ]
+    }
+    node5 = {
+        "id": "e62907e7bcbce663",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "func": "var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n});\nvar outMsg = {};\nvar ObsObj = context.flow.get('ObsObj');\nObsObj.id = uuid;\nvar timestamp = context.flow.get(\"$parent.timestamp\");\nif (typeof timestamp == 'undefined') {\n    timestamp = new Date().getTime();\n    ObsObj.timestamp = timestamp;\n}\nelse {\n    ObsObj.timestamp = timestamp;\n}\nObsObj.payload = context.flow.get(\"variable\");\noutMsg.payload = ObsObj;\nreturn outMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1635,
+        "y": 800,
+        "wires": [
+            []
+        ],
+        "l": False
+    }
+    node6 = {
+        "id": "0f6603d9f95134b3",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "func": "msg.topic = \"control\";\nmsg.payload = \"close\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1175,
+        "y": 660,
+        "wires": [
+            [
+                "f894203f2fd3ac35",
+                "5f9633884f5e4cd4"
+            ]
+        ],
+        "l": False
+    }
+    node7 = {
+        "id": "78d0225e0b3a8fe6",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "PrepareOutput",
+        "func": "var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {\n    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);\n    return v.toString(16);\n  });\n\n// Create an Observation Event Object ------------------------------------\nvar observation = {};\nobservation.id = uuid;\nobservation.source = msg.source;\nobservation.direction = \"Output\";\nvar observableReference = \"\";\n\n/*var observedKeys = msg.payload.observed.keys;\nfor (var key in observedKeys) {\n    if (parseInt(key) < 2) {\n        observableReference = observableReference + observedKeys[key].value + \"/\";\n    } else if (parseInt(key) >= 2 && parseInt(key) < (observedKeys.length - 1)) {\n        observableReference = observableReference + observedKeys[key].value + \".\";\n    } else {\n        observableReference = observableReference + observedKeys[key].value;\n    }\n}*/\n\nobservableReference = env.get(\"PropertyLink\");\n\nobservation.observableReference = observableReference;\n//observation.source = msg.req.params.aasid + \"/\" + msg.req.params.submodelId + \"/\" + msg.req.params.id;\nobservation.source = env.get(\"PropertyLinkEvt\");\n\nif(context.flow.get(\"timestamp\")){\n    observation.timestamp = context.flow.get(\"timestamp\");\n} else{\n    observation.timestamp = new Date().getTime();\n}\nobservation.payload = \"Data Flow removed\";\n//observation.href = msg.href;\n// END Create an Observation Object --------------------------------\n//outputMsgs.push(observation);\n\n//msg.payload = outputMsgs;\n//msg.payload = JSON.stringify(observation);\n//msg.test = JSON.parse(msg.payload);\ncontext.flow.set(\"ObsObj\", \"\");\nmsg.payload = observation;\nreturn msg;\n\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1175,
+        "y": 600,
+        "wires": [
+            []
+        ],
+        "l": False
+    }
+    node8 = {
+        "id": "96b701c2b50dc6f7",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "func": "var propertyName = env.get(\"PropertyName\");\nvar Outmsg = {};\nOutmsg.topic = msg.topic;\nvar variable = context.flow.get(\"$parent.\" + propertyName);\ncontext.flow.set(\"variable\", variable);\n\nOutmsg.payload = variable;\nreturn Outmsg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 875,
+        "y": 800,
+        "wires": [
+            [
+                "f894203f2fd3ac35",
+                "f02316f50a016d5d"
+            ]
+        ],
+        "l": False
+    }
+    node9 = {
+        "id": "f02316f50a016d5d",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "responseTime",
+        "func": "var historyArrayName = \"$parent.\" + env.get(\"PropertyName\") + \"_hist\";\nvar outMsg = {};\noutMsg.topic = \"put\";\nvar timestamp = context.flow.get(\"$parent.timestamp\");\nif (typeof timestamp == \"undefined\") {\n    timestamp = new Date().getTime();\n}\noutMsg.payload = {\n    link: env.get(\"PropertyLink\"),\n    tstamp: timestamp,\n    data: context.flow.get(\"variable\")\n};\nlet history = context.flow.get(historyArrayName) || [];\nif (history.length >= env.get(\"HistoryLength\")) {\n    history.pop();\n}\nhistory.push(outMsg.payload);\ncontext.flow.set(historyArrayName, history);\nreturn outMsg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1075,
+        "y": 860,
+        "wires": [
+            []
+        ],
+        "l": False
+    }
+    node10 = {
+        "id": "95ca925e8f8cf880",
+        "type": "switch",
+        "z": "41b3a1439ccec2c1",
+        "name": "scheduler",
+        "property": "topic",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "sbi scheduling data routing",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "false",
+        "repair": False,
+        "outputs": 2,
+        "x": 440,
+        "y": 520,
+        "wires": [
+            [
+                "127270a25c3d8888"
+            ],
+            [
+                "96b701c2b50dc6f7"
+            ]
+        ]
+    }
+    node11 = {
+        "id": "5f9633884f5e4cd4",
+        "type": "unsafe-function",
+        "z": "41b3a1439ccec2c1",
+        "name": "",
+        "func": "if(msg.payload == \"open\"){\n    msg.payload = ({ fill: \"green\", text: \"Open\" });\n} else if (msg.payload == \"close\"){\n    msg.payload = ({ fill: \"red\", text: \"Closed\" });\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1535,
+        "y": 700,
+        "wires": [
+            []
+        ],
+        "l": False
+    }
+
+    flow_data.insert(0,property_handler)
+    flow_data.insert(1,node1)
+    flow_data.insert(2,node2)
+    flow_data.insert(3,node3)
+    flow_data.insert(4,node4)
+    flow_data.insert(5,node5)
+    flow_data.insert(6,node6)
+    flow_data.insert(7,node7)
+    flow_data.insert(8,node8)
+    flow_data.insert(9,node9)
+    flow_data.insert(10,node10)
+    flow_data.insert(11,node11)
+
+    start_x = 185
+    start_y = 480
+    x_offset = 0
+    y_offset = 0
+
+    #populate links in trigger_out with the number of properties in file
+    for i in range(0,len(flow_data)):
+
+        if "name" in flow_data[i].keys() and flow_data[i]["name"] == "trigger_out":
+
+            for p in range(n_properties_w_event):
+
+                property_trigger_id = secrets.token_hex(8)
+
+                flow_data[i]["links"].append(property_trigger_id)
+
+                #create each trigger_in, property and timestamp nodes here
+
+                trigger_in_node = {
+                    "id": property_trigger_id,
+                    "type": "link in",
+                    "z": flow_id,
+                    "name": "trigger_in_" + str(p+1),
+                    "links": [
+                        flow_data[i]["id"]
+                    ],
+                    "x": start_x + x_offset,
+                    "y": start_y + y_offset,
+                    "wires": [
+                        [
+                            secrets.token_hex(8)
+                        ]
+                    ]
+                }
+
+                flow_data.append(trigger_in_node)
+                
+
+
+
+
+
+
+
+
+with open(filepath_flow, 'w') as f_flow:
+    json.dump(flow_data, f_flow)
+
+quit()
 
 with open(filepath_flow, 'r') as f_flow:
 
@@ -90,7 +475,6 @@ with open(filepath_flow, 'r') as f_flow:
         if "type" in flow_data[i].keys():
 
             if flow_data[i]["type"] == ("subflow:" + propertyhandler_id) and ("Property " in flow_data[i]["name"]): #search for all the properties
-                n_properties_in_flow += 1
                 
                 #dont overwrite if not first time - just for testing
                 if ("env" in flow_data[i].keys()) and (len(flow_data[i]["env"]) > 0) :
@@ -146,6 +530,10 @@ with open(filepath_flow, 'r') as f_flow:
 
 with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)
+
+
+
+
 
 with open(filepath_flow, 'r') as f_flow:
 

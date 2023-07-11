@@ -200,15 +200,7 @@
         "g": "6aa9beecbf5f8d23",
         "name": "trigger_out",
         "mode": "link",
-        "links": [
-            "469190e8fdba17b9",
-            "528e58833a988422",
-            "791f17302d8b4ca4",
-            "806b9c4f8b70c7cd",
-            "95e9e3286be87883",
-            "c2ca411926b66486",
-            "eac1e7b53fa37af3"
-        ],
+        "links": [],
         "x": 1270,
         "y": 200,
         "wires": [],
@@ -884,15 +876,7 @@
         "type": "link in",
         "z": "128ab3134a54f6b4",
         "name": "metrics",
-        "links": [
-            "f3137293845d295d",
-            "38b37541ec9d7086",
-            "cd39ec5da0b7b743",
-            "2779d6b6a0f7b1cc",
-            "77b206c3d0825bf2",
-            "ebeaa83d4abb8b92",
-            "5df3fe8b89186d53"
-        ],
+        "links": [],
         "x": 730,
         "y": 2080,
         "wires": [
