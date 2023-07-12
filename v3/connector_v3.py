@@ -410,10 +410,8 @@ with open(filepath_flow, 'r') as f_flow:
     flow_data.insert(10,node10)
     flow_data.insert(11,node11)
 
-    start_x = 185
-    start_y = 480
-    x_offset = 0
-    y_offset = 0
+    x_pos = 185
+    y_pos = 480
 
     #populate links in trigger_out with the number of properties in file
     for i in range(0,len(flow_data)):
@@ -436,8 +434,8 @@ with open(filepath_flow, 'r') as f_flow:
                     "links": [
                         flow_data[i]["id"]
                     ],
-                    "x": start_x + x_offset,
-                    "y": start_y + y_offset,
+                    "x": x_pos,
+                    "y": y_pos,
                     "wires": [
                         [
                             secrets.token_hex(8)
@@ -446,14 +444,127 @@ with open(filepath_flow, 'r') as f_flow:
                 }
 
                 flow_data.append(trigger_in_node)
+
+                observe_node = {
+                    "id": secrets.token_hex(8),
+                    "type": "inject",
+                    "z": flow_id,
+                    "name": "",
+                    "props": [
+                        {
+                            "p": "payload"
+                        },
+                        {
+                            "p": "topic",
+                            "vt": "str"
+                        }
+                    ],
+                    "repeat": "",
+                    "crontab": "",
+                    "once": False,
+                    "onceDelay": 0.1,
+                    "topic": "observe",
+                    "payload": "",
+                    "payloadType": "date",
+                    "x": trigger_in_node["x"] - 10,
+                    "y": trigger_in_node["y"] + 60,
+                    "wires": [
+                        [
+                            trigger_in_node["wires"][0][0]
+                        ]
+                    ]
+                }
+
+                flow_data.append(observe_node)
+
+                unobserve_node = {
+                    "id": secrets.token_hex(8),
+                    "type": "inject",
+                    "z": flow_id,
+                    "name": "",
+                    "props": [
+                        {
+                            "p": "payload"
+                        },
+                        {
+                            "p": "topic",
+                            "vt": "str"
+                        }
+                    ],
+                    "repeat": "",
+                    "crontab": "",
+                    "once": False,
+                    "onceDelay": 0.1,
+                    "topic": "unobserve",
+                    "payload": "",
+                    "payloadType": "date",
+                    "x": trigger_in_node["x"] - 25,
+                    "y": trigger_in_node["y"] + 100,
+                    "wires": [
+                        [
+                            trigger_in_node["wires"][0][0]
+                        ]
+                    ]
+                }
+
+                flow_data.append(unobserve_node)
+
+                init_node = {
+                    "id": secrets.token_hex(8),
+                    "type": "inject",
+                    "z": flow_id,
+                    "name": "",
+                    "props": [
+                        {
+                            "p": "payload"
+                        },
+                        {
+                            "p": "topic",
+                            "vt": "str"
+                        }
+                    ],
+                    "repeat": "",
+                    "crontab": "",
+                    "once": True,
+                    "onceDelay": 0.1,
+                    "topic": "init",
+                    "payload": "",
+                    "payloadType": "date",
+                    "x": trigger_in_node["x"] - 5,
+                    "y": trigger_in_node["y"] + 140,
+                    "wires": [
+                        [
+                            trigger_in_node["wires"][0][0]
+                        ]
+                    ]
+                }
+
+                flow_data.append(init_node)
+
+                property_node = {
+                    "id": trigger_in_node["wires"][0][0],
+                    "type": "subflow:41b3a1439ccec2c1",
+                    "z": flow_id,
+                    "name": "Property " + str(p+1),
+                    "x": trigger_in_node["x"] + 165,
+                    "y": trigger_in_node["y"],
+                    "wires": [
+                        [],
+                        [],
+                        []
+                    ]
+                }
+
+                flow_data.append(property_node)
+
+                if (p+1)%2 == 1:
+                    x_pos = 1725 #x_pos + 1540
+                else:
+                    x_pos = 185 #x_pos - 1540
+                    y_pos = y_pos + 320
                 
 
-
-
-
-
-
-
+   
 
 with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)
