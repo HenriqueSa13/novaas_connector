@@ -18,6 +18,7 @@ coll_list = list()
 evt_list = list()
 evt_name = ""
 n_properties_w_event = 0
+metrics_link_list = list()
 
 #check aas id
 aas_id = data["assetAdministrationShells"][0]["identification"]["id"]
@@ -563,13 +564,11 @@ with open(filepath_flow, 'r') as f_flow:
                     x_pos = 185 #x_pos - 1540
                     y_pos = y_pos + 320
                 
-
    
-
 with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)
 
-quit()
+
 
 with open(filepath_flow, 'r') as f_flow:
 
@@ -628,21 +627,10 @@ with open(filepath_flow, 'r') as f_flow:
    
                 j += 1
                 
-    """
-    prop submodel = flow - ok
-    prop submodel > flow - sao todas preenchidas no flow mas ficam em falta (possivel adicionar nos extra depois)
-    prop submodel < flow - erro (evt list nao tem elementos suficientes - break do ciclo quando acabam elementos na lista?)
-    """
-    if n_properties_w_event != n_properties_in_flow:
-        print("WARNING")
-        print("Number of properties mismatch: \n properties in submodel - " + str(n_properties_w_event) + "\n properties in flow - " + str(n_properties_in_flow))
-        #exit() 
 
 
 with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)
-
-
 
 
 
@@ -652,11 +640,9 @@ with open(filepath_flow, 'r') as f_flow:
 
     for i in range(0,len(flow_data)):   
         if "type" in flow_data[i].keys():
-            if flow_data[i]["type"] == "tab":
-                flow_id = flow_data[i]["id"]
             if flow_data[i]["type"] == "link in" and flow_data[i]["name"] == "metrics" :
-                metrics_links_list = flow_data[i]["links"]
                 metrics_id = flow_data[i]["id"]
+                metrics_node_pos = i
 
     k=0 # aux int to iterate through metrics list
     #create all the nodes in each property cluster
@@ -815,7 +801,7 @@ with open(filepath_flow, 'r') as f_flow:
                 "y": flow_data[i]["y"] + 120,
                 "wires": [
                     [
-                        metrics_links_list[k]
+                        secrets.token_hex(8)
                     ],
                     [
                         secrets.token_hex(8),
@@ -831,7 +817,7 @@ with open(filepath_flow, 'r') as f_flow:
             flow_data.append(broadcast_node)
 
             metrics_node ={
-                "id": metrics_links_list[k],
+                "id": broadcast_node["wires"][0][0],
                 "type": "link out",
                 "z": flow_id,
                 "name": "metrics",
@@ -953,8 +939,12 @@ with open(filepath_flow, 'r') as f_flow:
 
             flow_data.append(flexdash_link_node)
 
-            k += 1
+            metrics_link_list.append(metrics_node["id"])
 
+    for m in metrics_link_list:
+        flow_data[metrics_node_pos]["links"].append(m)
+
+            
 
 with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)  
