@@ -1,16 +1,18 @@
 import json
 import tkinter as tk
 import tkinter.filedialog
-import copy
 import secrets
 
 history_length = "14400"
 
+#directory for opening aasx and flow files
+print("Please choose the asset file (.aasx)")
 root = tk.Tk()
 root.withdraw()
-filepath_assetjson = tk.filedialog.askopenfilename(initialdir="./v1" ,title="Asset JSON file:")
+filepath_assetjson = tk.filedialog.askopenfilename(initialdir="./v3" ,title="Asset JSON file:")
 
 f = open(filepath_assetjson)
+
 #open aasx model file (json)
 data = json.load(f)
 
@@ -20,9 +22,9 @@ evt_name = ""
 n_properties_w_event = 0
 metrics_link_list = list()
 
-#check aas id
+#check aas id, for property links
 aas_id = data["assetAdministrationShells"][0]["identification"]["id"]
-print(aas_id)
+print("AAS ID: " + aas_id)
 
 for i in range(0,len(data["submodels"])) :
     if data["submodels"][i]["idShort"] == "OperationalData":
@@ -30,28 +32,49 @@ for i in range(0,len(data["submodels"])) :
         break
 
 for i in range(0,len(aas_opdata)) :
+
+    #Submodel Element Collections can have an indefinite number of events and subsequent collections inside
+    #everytime a collection is found, add it to a list: coll_list
     if aas_opdata[i]["modelType"]["name"] == "SubmodelElementCollection":
         coll_list.append(aas_opdata[i]["value"])
 
+    #look for events in aasx
+    # j starts at 2:
+    # 0 -> type: AssetAdministrationShell
+    # 1 -> type: Submodel
+    # 2 -> type: Property, take name from value
+
     if aas_opdata[i]["modelType"]["name"] == "BasicEvent":
         for j in range(2,len(aas_opdata[i]["observed"]["keys"])):
+            
+            #if it's the last element in list, add "Evt" to end, else add "." for multiple submodel element collections 
             if j == len(aas_opdata[i]["observed"]["keys"]) - 1:
                 evt_name += aas_opdata[i]["observed"]["keys"][j]["value"] + "Evt"
             else:
                 evt_name += aas_opdata[i]["observed"]["keys"][j]["value"] + "."
         
         n_properties_w_event +=1
+
+        #add name of event to evt_list and then reset evt_name for next iteration
         evt_list.append(evt_name) 
         evt_name = ""    
 
+# loop to check all submodel element collections in aasx
+# keep adding collections to coll_list while they exist
 while len(coll_list) != 0:
+
+    #store the number of elements to check and delete after all checked
     initial_len = len(coll_list)
 
+    #check each element in coll_list (SubmodelElementCollection)
     for i in range(0,len(coll_list)):
         for j in range(0,len(coll_list[i])):
+
+            #if more collections exist inside this one, add to coll_list
             if coll_list[i][j]["modelType"]["name"] == "SubmodelElementCollection":
                 coll_list.append(coll_list[i][j]["value"])
-
+            
+            #same as above (check events)
             if coll_list[i][j]["modelType"]["name"] == "BasicEvent":
                 for k in range(2,len(coll_list[i][j]["observed"]["keys"])):
                     if k == len(coll_list[i][j]["observed"]["keys"])-1:
@@ -62,7 +85,8 @@ while len(coll_list) != 0:
                 n_properties_w_event +=1
                 evt_list.append(evt_name) 
                 evt_name = ""
- 
+    
+    #after checking all initial elements in coll_list, delete them and start again if any new elements were added in j loop
     del coll_list[:initial_len]
           
 print(evt_list)
@@ -70,6 +94,8 @@ f.close()
 
 #-------------------------------------------------------------------------
 
+#choose template flow file with no property nodes, so it can be populated
+print("Please choose the template flow (.json)")
 root = tk.Tk()
 root.withdraw()
 filepath_flow = tk.filedialog.askopenfilename(title="Node-Red flow JSON file:")
@@ -81,11 +107,12 @@ with open(filepath_flow, 'r') as f_flow:
 
     flow_data = json.load(f_flow)
 
+    #search for flow id
     for i in range(0,len(flow_data)):   
         if "type" in flow_data[i].keys() and flow_data[i]["type"] == "tab":
             flow_id = flow_data[i]["id"]
     
-
+    #create property handler subflow with all nodes and insert at the beginning of the flow (position is arbitrary)
     property_handler = {
         "id": "41b3a1439ccec2c1",
         "type": "subflow",
@@ -411,6 +438,7 @@ with open(filepath_flow, 'r') as f_flow:
     flow_data.insert(10,node10)
     flow_data.insert(11,node11)
 
+    #position of initial trigger_in node (top left)
     x_pos = 185
     y_pos = 480
 
@@ -421,8 +449,10 @@ with open(filepath_flow, 'r') as f_flow:
 
             for p in range(n_properties_w_event):
 
+                #generate property trigger ids
                 property_trigger_id = secrets.token_hex(8)
 
+                #add the node id of every property trigger in node to links in trigger out
                 flow_data[i]["links"].append(property_trigger_id)
 
                 #create each trigger_in, property and timestamp nodes here
@@ -558,18 +588,29 @@ with open(filepath_flow, 'r') as f_flow:
 
                 flow_data.append(property_node)
 
+                #if current property number is uneven, the next is even, meaning only x position changes
+                #else next is uneven, meaning x position goes back to initial and y position increments
+
+                #like so:
+                # (x,y)                 (x+i, y)
+                # (x, y+j)              (x+i, y+j)
+                # Property 1            Property 2
+                # Property 3            Property 4
+                # Property 5            Property 6
+                # Property 7            Property 8
+                # Property 9            Property 10
+                
                 if (p+1)%2 == 1:
                     x_pos = 1725 #x_pos + 1540
                 else:
                     x_pos = 185 #x_pos - 1540
                     y_pos = y_pos + 320
                 
-   
+#write all changes to file
 with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)
 
-
-
+#open again to fill the property nodes
 with open(filepath_flow, 'r') as f_flow:
 
     flow_data = json.load(f_flow)
@@ -628,12 +669,12 @@ with open(filepath_flow, 'r') as f_flow:
                 j += 1
                 
 
-
+#write all changes to file
 with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)
 
 
-
+#open file again and create all other nodes
 with open(filepath_flow, 'r') as f_flow:
 
     flow_data = json.load(f_flow)
@@ -945,7 +986,7 @@ with open(filepath_flow, 'r') as f_flow:
         flow_data[metrics_node_pos]["links"].append(m)
 
             
-
+#write all changes to file
 with open(filepath_flow, 'w') as f_flow:
     json.dump(flow_data, f_flow)  
 
